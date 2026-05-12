@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tuner Dashboard - SQLTuner Enterprise Performance Management</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+  <style>
+    /* Adjustments to support fixed sticky header and scrollable dashboard content */
+    body {
+      background-color: var(--bg-main);
+    }
+  </style>
+</head>
+<body id="dashboard-app" class="dashboard-layout">
+
+  <!-- SIDEBAR (DRAWER ON MOBILE, FIXED ON DESKTOP) -->
+  <aside class="dashboard-sidebar">
+    <div class="dashboard-brand">
+      <a href="index.html" class="logo-container">
+        <div class="logo-icon">DB</div>
+        <span>SQLTuner</span>
+      </a>
+    </div>
+    
+    <ul class="sidebar-menu">
+      <li class="sidebar-menu-title" style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; padding: 10px 16px; letter-spacing: 0.5px;">Main Menu</li>
+      <li>
+        <a href="#" class="sidebar-link active">
+          <span>📊</span> Overview
+        </a>
+      </li>
+      <li>
+        <a href="#uploader-card" class="sidebar-link">
+          <span>📤</span> Upload Logs
+        </a>
+      </li>
+      <li>
+        <a href="#query-workspace" class="sidebar-link">
+          <span>⚡</span> Query Workspace
+        </a>
+      </li>
+      <li>
+        <a href="services.html" class="sidebar-link">
+          <span>🔑</span> My Service Plans
+        </a>
+      </li>
+      <li class="sidebar-menu-title" style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; padding: 20px 16px 10px 16px; letter-spacing: 0.5px;">Account</li>
+      <li>
+        <a href="contact.html" class="sidebar-link">
+          <span>⚙️</span> Settings
+        </a>
+      </li>
+      <li>
+        <a href="login.html" class="sidebar-link">
+          <span>🚪</span> Logout
+        </a>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- MAIN VIEWPORT AREA -->
+  <main class="dashboard-main">
+    <!-- Non-Scrolling Sticky Header -->
+    <header class="dashboard-header">
+      <div class="dashboard-title-area">
+        <!-- Hamburger Menu toggle inside dashboard header on mobile and tablet -->
+        <button class="toggle-btn sidebar-toggle" aria-label="Toggle Navigation Drawer" style="display: none; padding: 0;" id="mobile-sidebar-hamburger">
+          <span style="font-size: 1.5rem;">☰</span>
+        </button>
+        <h3 style="font-family:'Outfit'; font-size: 1.25rem; font-weight:700;">DASHBOARD <span style="color:var(--text-muted); font-weight:400; font-size:1rem;">— OVERVIEW</span></h3>
+      </div>
+      
+      <div class="header-actions">
+        <button class="toggle-btn rtl-toggle" aria-label="Toggle Layout Direction">RTL</button>
+        <button class="toggle-btn theme-toggle" aria-label="Toggle Color Theme">🌙</button>
+        <div class="profile-menu">
+          <div class="profile-avatar">JL</div>
+          <span style="font-family:'Outfit'; font-weight:600; font-size: 0.85rem; color:var(--text-main);" class="profile-name-text">JAMES LIM</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Scrollable content pane -->
+    <div class="dashboard-content-scroll">
+      
+      <!-- GRID OF KPI METRIC CARDS -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-6); margin-bottom: var(--space-8);">
+        
+        <div class="card-glass" style="padding: 20px; align-items: stretch; text-align: left;">
+          <div style="font-size: 0.75rem; font-weight:700; text-transform:uppercase; color:var(--text-muted); letter-spacing:0.5px; margin-bottom: 5px;">Average Query Latency</div>
+          <div style="display: flex; align-items: baseline; gap: 10px;">
+            <div style="font-size: 2.2rem; font-weight:800; color:var(--accent);" id="query-savings-val">4.82s</div>
+            <span style="font-size: 0.85rem; color: var(--accent); font-weight: 700;">⚠️ Slow</span>
+          </div>
+          <div style="background: var(--border-color); height: 6px; border-radius: 10px; overflow:hidden; margin-top: 15px;">
+            <div style="background: var(--accent); width: 85%; height: 100%; transition: width var(--transition-slow);" id="query-speedup-progress"></div>
+          </div>
+        </div>
+
+        <div class="card-glass" style="padding: 20px; align-items: stretch; text-align: left;">
+          <div style="font-size: 0.75rem; font-weight:700; text-transform:uppercase; color:var(--text-muted); letter-spacing:0.5px; margin-bottom: 5px;">Active Table Indexes</div>
+          <div style="display: flex; align-items: baseline; gap: 10px;">
+            <div style="font-size: 2.2rem; font-weight:800; color:var(--primary);">12</div>
+            <span style="font-size: 0.85rem; color: var(--secondary); font-weight: 700;">✓ Healthy</span>
+          </div>
+          <div style="background: var(--border-color); height: 6px; border-radius: 10px; overflow:hidden; margin-top: 15px;">
+            <div style="background: var(--primary); width: 100%; height: 100%;"></div>
+          </div>
+        </div>
+
+        <div class="card-glass" style="padding: 20px; align-items: stretch; text-align: left;">
+          <div style="font-size: 0.75rem; font-weight:700; text-transform:uppercase; color:var(--text-muted); letter-spacing:0.5px; margin-bottom: 5px;">Host CPU Capacity</div>
+          <div style="display: flex; align-items: baseline; gap: 10px;">
+            <div style="font-size: 2.2rem; font-weight:800; color:var(--accent);">94.1%</div>
+            <span style="font-size: 0.85rem; color: var(--accent); font-weight: 700;">⚠️ Throttled</span>
+          </div>
+          <div style="background: var(--border-color); height: 6px; border-radius: 10px; overflow:hidden; margin-top: 15px;">
+            <div style="background: var(--accent); width: 94%; height: 100%;"></div>
+          </div>
+        </div>
+
+        <div class="card-glass" style="padding: 20px; align-items: stretch; text-align: left;">
+          <div style="font-size: 0.75rem; font-weight:700; text-transform:uppercase; color:var(--text-muted); letter-spacing:0.5px; margin-bottom: 5px;">Cloud RDS Price Savings</div>
+          <div style="display: flex; align-items: baseline; gap: 10px;">
+            <div style="font-size: 2.2rem; font-weight:800; color:var(--secondary);">62.4%</div>
+            <span style="font-size: 0.85rem; color: var(--secondary); font-weight: 700;">✓ Optimizing</span>
+          </div>
+          <div style="background: var(--border-color); height: 6px; border-radius: 10px; overflow:hidden; margin-top: 15px;">
+            <div style="background: var(--secondary); width: 62%; height: 100%;"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- FILE UPLOADER & LOG PARSER CONTAINER -->
+      <div class="card-glass" id="uploader-card" style="padding: var(--space-8); margin-bottom: var(--space-8); text-align: center; border-style: dashed; border-width: 2px;">
+        <div id="upload-area" style="cursor: pointer; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+          <input type="file" id="file-input" style="display: none;" accept=".log,.sql,.txt">
+          <div id="upload-text" style="display: flex; flex-direction: column; align-items: center;">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary); margin-bottom: 10px;">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="17 8 12 3 7 8"></polyline>
+              <line x1="12" y1="3" x2="12" y2="15"></line>
+            </svg>
+            <p><strong>Upload MySQL Slow Query Log</strong> or drag and drop</p>
+            <span style="font-size: 0.8rem; color: var(--text-muted)">Supports .log, .sql, .txt files up to 50MB</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- WORKSPACE SLOW QUERY WORKLIST -->
+      <div id="query-workspace">
+        <h3 style="font-family:'Outfit'; margin-bottom: var(--space-4);">Slow SQL Query Bottlenecks</h3>
+        <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom: var(--space-6);">Parsed directly from slow query files. Click **Test Index/Fix** to verify latency adjustments.</p>
+        
+        <div id="query-list" style="display: flex; flex-direction: column; gap: var(--space-4);">
+          <!-- Dynamic logs inject via dashboard.js -->
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- CUSTOM MEDIA QUERIES FOR DASHBOARD SPECIFIC RESPONSIVENESS -->
+  <style>
+    @media (max-width: 1023px) {
+      .dashboard-sidebar {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        height: 100vh;
+        z-index: 1000;
+        width: 260px;
+        box-shadow: var(--shadow-lg);
+      }
+      .dashboard-sidebar.active {
+        left: 0;
+      }
+      .toggle-btn.sidebar-toggle {
+        display: flex !important;
+      }
+      .profile-name-text {
+        display: none; /* Hide James Lim text on mobile/tab view inside profile card, show just JL avatar */
+      }
+    }
+  </style>
+
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/dashboard.js"></script>
+</body>
+</html>

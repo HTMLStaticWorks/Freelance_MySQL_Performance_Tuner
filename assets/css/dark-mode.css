@@ -1,0 +1,63 @@
+/* --- DARK MODE THEME OVERRIDES --- */
+
+body.dark-mode {
+  --bg-main: #0a0f1d;          /* Deep Space Blue background */
+  --bg-card: #131b2e;          /* Premium Slate Blue card background */
+  --bg-header: rgba(10, 15, 29, 0.8);
+  --bg-sidebar: #0e1628;       /* Dark Sidebar background */
+  --text-main: #f8fafc;        /* Bright white/gray text */
+  --text-muted: #94a3b8;       /* Muted gray text */
+  --border-color: #1e293b;     /* Slate border color */
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 25px rgba(0, 245, 212, 0.08);
+}
+
+/* Specific elements that need visual refinement in Dark Mode */
+body.dark-mode .logo-icon {
+  box-shadow: 0 0 15px rgba(37, 99, 235, 0.3);
+}
+
+body.dark-mode .btn-secondary {
+  color: var(--secondary);
+}
+
+body.dark-mode .btn-secondary:hover {
+  color: #000000;
+}
+
+body.dark-mode .form-control {
+  background: #0f172a;
+}
+
+body.dark-mode .card-glass {
+  background: var(--bg-card);
+  border-color: var(--border-color);
+}
+
+body.dark-mode .card-glass:hover {
+  border-color: var(--secondary);
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+}
+
+body.dark-mode .toggle-btn:hover {
+  background: #1e293b;
+}
+
+body.dark-mode .sidebar-link:hover, 
+body.dark-mode .sidebar-link.active {
+  background: rgba(0, 245, 212, 0.08);
+  color: var(--secondary);
+}
+
+body.dark-mode .nav-link:hover,
+body.dark-mode .nav-link.active {
+  color: var(--secondary);
+}
+
+body.dark-mode .btn-text:hover {
+  background: rgba(0, 245, 212, 0.08);
+  color: var(--secondary);
+}

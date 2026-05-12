@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 Table Not Found - SQLTuner Error Page</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+</head>
+<body>
+
+  <!-- HEADER SYSTEM -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="index.html" class="logo-container">
+        <div class="logo-icon">DB</div>
+        <span>SQLTuner</span>
+      </a>
+      
+      <button class="hamburger" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="index2.html" class="nav-link">Home 2</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="blog.html" class="nav-link">Blog</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+      </ul>
+      
+      <div class="header-actions">
+        <button class="toggle-btn rtl-toggle" aria-label="Toggle Layout Direction">RTL</button>
+        <button class="toggle-btn theme-toggle" aria-label="Toggle Color Theme">🌙</button>
+        <a href="login.html" class="btn btn-primary" style="padding: var(--space-2) var(--space-4);">Login</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- SECTION 1: ERROR HERO HEADER -->
+  <section class="hero" style="text-align: center;">
+    <div class="container" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+      <div class="hero-tag" style="background: rgba(239, 68, 68, 0.1); color: #ef4444; border-color: rgba(239, 68, 68, 0.2);">⚠️ ERROR 404: TABLE NOT FOUND</div>
+      <h1 class="hero-title" style="font-size: 4rem; margin-top: 15px;">Unknown <span>Schema Path</span></h1>
+      <p class="hero-description" style="margin: 15px auto 25px auto;">The record you requested does not exist or has been dropped from the production schema definitions.</p>
+      <div style="display: flex; gap: var(--space-4);">
+        <a href="index.html" class="btn btn-primary">Back to Home</a>
+        <a href="dashboard.html" class="btn btn-secondary">Go to Dashboard</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: INTERACTIVE MYSQL SHELL (WONDERFUL EASTER EGG) -->
+  <section class="section" style="background: rgba(var(--primary-rgb), 0.02); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">SQL Recovery Shell</h2>
+        <p class="section-subtitle">Type standard SQL commands like <code>SHOW TABLES;</code> or <code>SELECT * FROM pages;</code> to recover navigation coordinates.</p>
+      </div>
+      <div class="card-glass" style="max-width: 700px; margin: 0 auto; text-align: left; align-items: stretch; background: #0c0f1d; border-color: #1e293b; color: #10b981; font-family: 'JetBrains Mono', monospace; padding: 25px; box-shadow: var(--shadow-lg);">
+        <div style="color: #64748b; margin-bottom: 15px; border-bottom: 1px solid #1e293b; padding-bottom: 10px; font-size: 0.8rem; display: flex; justify-content: space-between;">
+          <span>MySQL 8.0.32 Shell Connection</span>
+          <span>ONLINE</span>
+        </div>
+        <div id="shell-output" style="min-height: 120px; font-size: 0.85rem; margin-bottom: 15px; white-space: pre-wrap; line-height: 1.6; overflow-y: auto;">mysql> Enter command to query available records...
+Type 'help' to show instructions.</div>
+        <div style="display: flex; align-items: center; gap: 10px; border-top: 1px solid #1e293b; padding-top: 15px;">
+          <span style="color: var(--secondary); font-weight:700;">mysql&gt;</span>
+          <input type="text" id="shell-input" style="flex-grow:1; background:transparent; border:none; outline:none; color:#ffffff; font-family: inherit; font-size: 0.85rem;" placeholder="SHOW TABLES;" autofocus>
+          <button class="btn btn-secondary" style="padding: 4px 14px; font-size: 0.75rem;" onclick="executeShellCommand()">Execute</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: RECOVERY PATH LINKS -->
+  <section class="section" style="text-align: center;">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Helpful Schema Mapping Links</h2>
+        <p class="section-subtitle">Navigate directly to the most popular database resources.</p>
+      </div>
+      <div style="display: flex; justify-content: center; gap: var(--space-6); flex-wrap: wrap;">
+        <a href="services.html" class="card-glass" style="width: 200px; padding: var(--space-4);">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🛠️</div>
+          <strong>Services</strong>
+        </a>
+        <a href="blog.html" class="card-glass" style="width: 200px; padding: var(--space-4);">
+          <div style="font-size: 2rem; margin-bottom: 10px;">📖</div>
+          <strong>Tutorials</strong>
+        </a>
+        <a href="about.html" class="card-glass" style="width: 200px; padding: var(--space-4);">
+          <div style="font-size: 2rem; margin-bottom: 10px;">👤</div>
+          <strong>Story</strong>
+        </a>
+        <a href="contact.html" class="card-glass" style="width: 200px; padding: var(--space-4);">
+          <div style="font-size: 2rem; margin-bottom: 10px;">✉️</div>
+          <strong>Consult</strong>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand-column">
+        <a href="index.html" class="logo-container" style="margin-bottom: 10px;">
+          <div class="logo-icon">DB</div>
+          <span>SQLTuner</span>
+        </a>
+        <p class="footer-brand-text">Freelance MySQL performance tuning, schema design, and server optimization services for fast-growing development teams.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-link" aria-label="Twitter">TW</a>
+          <a href="#" class="social-link" aria-label="LinkedIn">LN</a>
+          <a href="#" class="social-link" aria-label="GitHub">GH</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer-column-title">Services</h4>
+        <ul class="footer-links">
+          <li><a href="services.html">Query Optimization</a></li>
+          <li><a href="services.html">Schema Refactoring</a></li>
+          <li><a href="services.html">Database Audits</a></li>
+          <li><a href="services.html">AWS RDS Cost Reduction</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-column-title">Resources</h4>
+        <ul class="footer-links">
+          <li><a href="blog.html">MySQL Performance Blog</a></li>
+          <li><a href="about.html">Case Studies</a></li>
+          <li><a href="dashboard.html">Tuner Tool Demo</a></li>
+          <li><a href="coming-soon.html">Upcoming SQL tools</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-column-title">Contact Info</h4>
+        <div class="footer-contact-info">
+          <div class="footer-contact-item">📧 support@sqltuner.com</div>
+          <div class="footer-contact-item">📞 +1 (555) 238-9481</div>
+          <div class="footer-contact-item">📍 Remote Worldwide / US Eastern</div>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 SQLTuner. All rights reserved.</p>
+      <div style="display: flex; gap: var(--space-4);">
+        <a href="404.html">Privacy Policy</a>
+        <a href="404.html">Terms of Use</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+  <script>
+    // Custom Interactive Easter Egg Command Shell
+    const shellInput = document.getElementById('shell-input');
+    const shellOutput = document.getElementById('shell-output');
+
+    if (shellInput) {
+      shellInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          executeShellCommand();
+        }
+      });
+    }
+
+    function executeShellCommand() {
+      const command = shellInput.value.trim().toLowerCase();
+      if (!command) return;
+
+      shellInput.value = '';
+      let result = '';
+
+      if (command === 'show tables;' || command === 'show tables') {
+        result = `
++-----------------------------------+
+| Tables_in_sqltuner_site           |
++-----------------------------------+
+| index.html (home)                 |
+| index2.html (home_alt)            |
+| about.html (consultant_bio)       |
+| services.html (pricing_plans)     |
+| blog.html (technical_tutorials)   |
+| contact.html (audit_bookings)     |
+| dashboard.html (slow_logs_tool)  |
++-----------------------------------+
+7 rows in set (0.00 sec)
+`;
+      } else if (command === 'help') {
+        result = `Supported commands:
+  - 'show tables;' : Lists all valid website directories.
+  - 'select * from pages;' : Detailed maps of valid file pages.
+  - 'clear' : Erase active output panel.`;
+      } else if (command === 'select * from pages;' || command === 'select * from pages') {
+        result = `
++-------------+---------------------+-------------------+
+| page_id     | file_name           | description       |
++-------------+---------------------+-------------------+
+| 1           | index.html          | Primary Home      |
+| 2           | index2.html         | Secondary Home    |
+| 3           | about.html          | Alex Chen DBA     |
+| 4           | services.html       | Tuning Packages   |
+| 5           | blog.html           | SQL Tutorials     |
+| 6           | contact.html        | Booking form      |
+| 7           | dashboard.html      | Slow log analysis |
++-------------+---------------------+-------------------+
+7 rows in set (0.01 sec)
+`;
+      } else if (command === 'clear') {
+        shellOutput.innerHTML = '';
+        return;
+      } else {
+        result = `ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your SQLTuner server version for the right syntax to use near '${command}' at line 1`;
+      }
+
+      shellOutput.innerHTML += '\\nmysql> ' + command + '\\n' + result;
+      shellOutput.scrollTop = shellOutput.scrollHeight;
+    }
+  </script>
+</body>
+</html>

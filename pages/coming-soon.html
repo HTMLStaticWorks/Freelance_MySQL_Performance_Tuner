@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coming Soon - SQLTuner Automated Reindexing Script</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+</head>
+<body>
+
+  <!-- HEADER SYSTEM -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="index.html" class="logo-container">
+        <div class="logo-icon">DB</div>
+        <span>SQLTuner</span>
+      </a>
+      
+      <button class="hamburger" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="index2.html" class="nav-link">Home 2</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="blog.html" class="nav-link">Blog</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+      </ul>
+      
+      <div class="header-actions">
+        <button class="toggle-btn rtl-toggle" aria-label="Toggle Layout Direction">RTL</button>
+        <button class="toggle-btn theme-toggle" aria-label="Toggle Color Theme">🌙</button>
+        <a href="login.html" class="btn btn-primary" style="padding: var(--space-2) var(--space-4);">Login</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- SECTION 1: LAUNCH COUNTDOWN HERO -->
+  <section class="hero" style="text-align: center;">
+    <div class="container" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+      <div class="hero-tag">🚀 PRODUCT PIPELINE</div>
+      <h1 class="hero-title" style="margin-top: 15px;">The <span>SQLTuner CLI Utility</span> is Launching Soon</h1>
+      <p class="hero-description" style="margin: 15px auto 35px auto;">We're compiling automated node scripts designed to run on-demand database inspections, index bloat evaluations, and safety checks on tables.</p>
+      
+      <!-- Countdown timer -->
+      <div style="display: flex; gap: var(--space-4); margin-bottom: 20px;">
+        <div class="card-glass" style="min-width: 80px; padding: 15px; border-color: var(--secondary);">
+          <div style="font-size: 2rem; font-weight: 800; color: var(--primary);" id="days-val">14</div>
+          <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Days</span>
+        </div>
+        <div class="card-glass" style="min-width: 80px; padding: 15px; border-color: var(--secondary);">
+          <div style="font-size: 2rem; font-weight: 800; color: var(--primary);" id="hours-val">22</div>
+          <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Hours</span>
+        </div>
+        <div class="card-glass" style="min-width: 80px; padding: 15px; border-color: var(--secondary);">
+          <div style="font-size: 2rem; font-weight: 800; color: var(--primary);" id="mins-val">58</div>
+          <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Mins</span>
+        </div>
+        <div class="card-glass" style="min-width: 80px; padding: 15px; border-color: var(--secondary);">
+          <div style="font-size: 2rem; font-weight: 800; color: var(--accent);" id="secs-val">41</div>
+          <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Secs</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: BETA REGISTRATION FORM -->
+  <section class="section" style="background: rgba(var(--primary-rgb), 0.02); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+    <div class="container" style="text-align: center;">
+      <div class="section-header">
+        <h2 class="section-title">Get Early Beta Access</h2>
+        <p class="section-subtitle">Be the first to secure our automated indexing package when it goes live.</p>
+      </div>
+      <div class="card-glass" style="max-width: 500px; margin: 0 auto; padding: var(--space-8);">
+        <form novalidate>
+          <div class="form-group">
+            <label class="form-label" for="beta_email">Your Email Address</label>
+            <input class="form-control" type="email" id="beta_email" placeholder="dev@company.com" required>
+            <span class="validation-tooltip"></span>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: var(--space-4);">Request beta access</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: SNEAK PEEK CLI CAPABILITIES -->
+  <section class="section" style="text-align: center;">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Automated Inspections Snapshot</h2>
+        <p class="section-subtitle">A glimpse into standard terminal features shipped in the new command CLI bundle.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-8);">
+        <div class="card-glass">
+          <div style="font-size: 2.5rem; margin-bottom: 10px;">🛡️</div>
+          <h3>Zero-Bloat Reindexing</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; line-height: 1.5;">Evaluates database tables and automatically indexes them safely without locking active readers.</p>
+        </div>
+        <div class="card-glass">
+          <div style="font-size: 2.5rem; margin-bottom: 10px;">📉</div>
+          <h3>Lock-wait Triggers</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; line-height: 1.5;">Hooks directly to Slack or PagerDuty to flag locks before they result in complete request timeouts.</p>
+        </div>
+        <div class="card-glass">
+          <div style="font-size: 2.5rem; margin-bottom: 10px;">💻</div>
+          <h3>One-click CNF Exports</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; line-height: 1.5;">Instantly auto-computes optimal InnoDB memory specifications based on machine resource capabilities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand-column">
+        <a href="index.html" class="logo-container" style="margin-bottom: 10px;">
+          <div class="logo-icon">DB</div>
+          <span>SQLTuner</span>
+        </a>
+        <p class="footer-brand-text">Freelance MySQL performance tuning, schema design, and server optimization services for fast-growing development teams.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-link" aria-label="Twitter">TW</a>
+          <a href="#" class="social-link" aria-label="LinkedIn">LN</a>
+          <a href="#" class="social-link" aria-label="GitHub">GH</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer-column-title">Services</h4>
+        <ul class="footer-links">
+          <li><a href="services.html">Query Optimization</a></li>
+          <li><a href="services.html">Schema Refactoring</a></li>
+          <li><a href="services.html">Database Audits</a></li>
+          <li><a href="services.html">AWS RDS Cost Reduction</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-column-title">Resources</h4>
+        <ul class="footer-links">
+          <li><a href="blog.html">MySQL Performance Blog</a></li>
+          <li><a href="about.html">Case Studies</a></li>
+          <li><a href="dashboard.html">Tuner Tool Demo</a></li>
+          <li><a href="coming-soon.html">Upcoming SQL tools</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-column-title">Contact Info</h4>
+        <div class="footer-contact-info">
+          <div class="footer-contact-item">📧 support@sqltuner.com</div>
+          <div class="footer-contact-item">📞 +1 (555) 238-9481</div>
+          <div class="footer-contact-item">📍 Remote Worldwide / US Eastern</div>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 SQLTuner. All rights reserved.</p>
+      <div style="display: flex; gap: var(--space-4);">
+        <a href="404.html">Privacy Policy</a>
+        <a href="404.html">Terms of Use</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+  <script>
+    // Live countdown clock simulator
+    let secondsVal = 41;
+    let minsVal = 58;
+
+    setInterval(() => {
+      secondsVal--;
+      if (secondsVal < 0) {
+        secondsVal = 59;
+        minsVal--;
+        if (minsVal < 0) {
+          minsVal = 59;
+        }
+        document.getElementById('mins-val').textContent = minsVal;
+      }
+      document.getElementById('secs-val').textContent = secondsVal < 10 ? '0' + secondsVal : secondsVal;
+    }, 1000);
+  </script>
+</body>
+</html>

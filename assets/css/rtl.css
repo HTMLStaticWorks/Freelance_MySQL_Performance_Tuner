@@ -1,0 +1,124 @@
+/* --- RIGHT-TO-LEFT (RTL) STYLES --- */
+
+[dir="rtl"] {
+  direction: rtl;
+  unicode-bidi: embed;
+}
+
+[dir="rtl"] body {
+  font-family: 'Inter', sans-serif;
+  text-align: right; /* Set default text align to right */
+}
+
+/* Override center alignments only if needed, but centering should be preserved */
+[dir="rtl"] .section-header,
+[dir="rtl"] .section-title,
+[dir="rtl"] .section-subtitle,
+[dir="rtl"] .card-glass,
+[dir="rtl"] .hero-visual,
+[dir="rtl"] .footer {
+  /* Keep centered styles centered */
+}
+
+/* Flip text align for items that are left-aligned by default */
+[dir="rtl"] .form-group,
+[dir="rtl"] .form-label,
+[dir="rtl"] .validation-tooltip,
+[dir="rtl"] pre,
+[dir="rtl"] code,
+[dir="rtl"] .hero-content,
+[dir="rtl"] .footer-brand-column,
+[dir="rtl"] .footer-column-title,
+[dir="rtl"] .footer-links,
+[dir="rtl"] .footer-contact-info {
+  text-align: right;
+  left: auto;
+}
+
+[dir="rtl"] .validation-tooltip {
+  right: 0;
+  left: auto;
+}
+
+/* Header system flips */
+[dir="rtl"] .header-container {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .logo-container {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .header-actions {
+  flex-direction: row-reverse;
+}
+
+/* Dashboard Sidebar and Layout flips */
+[dir="rtl"] .dashboard-layout {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .dashboard-sidebar {
+  border-right: none;
+  border-left: 1px solid var(--border-color);
+}
+
+[dir="rtl"] .dashboard-header {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .dashboard-title-area {
+  flex-direction: row-reverse;
+}
+
+/* Absolute offsets */
+[dir="rtl"] .auth-header-controls {
+  right: auto;
+  left: var(--space-8);
+}
+
+/* Social icons layout alignment */
+[dir="rtl"] .footer-socials {
+  justify-content: flex-start;
+}
+
+[dir="rtl"] .footer-bottom {
+  flex-direction: row-reverse;
+}
+
+/* Transitions and logical spacing */
+[dir="rtl"] .footer-links a:hover {
+  padding-left: 0;
+  padding-right: var(--space-2);
+}
+
+@media (max-width: 1023px) {
+  [dir="rtl"] .nav-menu {
+    left: auto;
+    right: -100%;
+    transition: right var(--transition-normal);
+  }
+
+  [dir="rtl"] .nav-menu.active {
+    left: auto;
+    right: 0;
+  }
+
+  [dir="rtl"] .dashboard-sidebar {
+    left: auto;
+    right: -100%;
+    transition: right var(--transition-normal);
+  }
+
+  [dir="rtl"] .dashboard-sidebar.active {
+    left: auto;
+    right: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  [dir="rtl"] .auth-header-controls {
+    right: auto;
+    left: var(--space-4);
+  }
+}

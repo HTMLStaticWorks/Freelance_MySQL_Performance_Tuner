@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - SQLTuner Client Account</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+</head>
+<body>
+
+  <div class="auth-wrapper">
+    <!-- Outside Control Buttons (Top Right, Out of Card) -->
+    <div class="auth-header-controls">
+      <button class="toggle-btn rtl-toggle" aria-label="Toggle Layout Direction">RTL</button>
+      <button class="toggle-btn theme-toggle" aria-label="Toggle Color Theme">🌙</button>
+    </div>
+
+    <!-- Auth Card -->
+    <div class="auth-card">
+      <a href="index.html" class="logo-container" style="justify-content: center; margin-bottom: var(--space-8);">
+        <div class="logo-icon">DB</div>
+        <span style="font-size: 1.5rem;">SQLTuner</span>
+      </a>
+
+      <h2 style="font-family: 'Outfit'; font-size: 1.8rem; margin-bottom: var(--space-2);">Create Account</h2>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: var(--space-8);">Join dev teams uploading slow logs for recommendations</p>
+
+      <form novalidate onsubmit="handleRegisterSubmit(event)">
+        <div class="form-group">
+          <label class="form-label" for="reg_name">Full Name</label>
+          <input class="form-control" type="text" id="reg_name" placeholder="Alex Carter" required>
+          <span class="validation-tooltip"></span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reg_email">Email Address</label>
+          <input class="form-control" type="email" id="reg_email" placeholder="name@company.com" required>
+          <span class="validation-tooltip"></span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reg_password">Password</label>
+          <input class="form-control" type="password" id="reg_password" placeholder="••••••••" required>
+          <span class="validation-tooltip"></span>
+        </div>
+
+        <div style="display: flex; align-items: center; margin-bottom: var(--space-6); font-size: 0.85rem; width: 100%;">
+          <label style="display: flex; align-items: center; gap: 6px; cursor: pointer;">
+            <input type="checkbox" id="reg_agree" required style="accent-color: var(--primary);"> I agree to the <a href="404.html" style="color: var(--primary); font-weight: 500; margin-left: 3px;">Terms of Service</a>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-bottom: var(--space-4);">Sign Up</button>
+      </form>
+
+      <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: var(--space-4);">
+        Already have an account? <a href="login.html" style="color: var(--primary); font-weight: 600;">Sign in here</a>
+      </p>
+    </div>
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+  <script>
+    function handleRegisterSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const name = document.getElementById('reg_name').value.trim();
+      const email = document.getElementById('reg_email').value.trim();
+      const password = document.getElementById('reg_password').value.trim();
+      const agree = document.getElementById('reg_agree').checked;
+
+      if (name && email && password && password.length >= 6 && agree) {
+        // Redirection to login
+        window.location.href = 'login.html';
+      }
+    }
+  </script>
+</body>
+</html>
