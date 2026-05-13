@@ -49,6 +49,9 @@ function initDashboard() {
       }
     });
   }
+
+  // Initialize tabs navigation
+  initTabs();
 }
 
 // Mock Data
@@ -261,3 +264,43 @@ styleSheet.innerText = `
   }
 `;
 document.head.appendChild(styleSheet);
+
+function initTabs() {
+  const sidebarLinks = document.querySelectorAll('.dashboard-sidebar .sidebar-link');
+  const tabs = document.querySelectorAll('.dashboard-tab-content');
+  const headerSubtitle = document.querySelector('.dashboard-header h3 span');
+
+  sidebarLinks.forEach(link => {
+    const tabName = link.getAttribute('data-tab');
+    if (!tabName) return;
+
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      // Remove active class from all links
+      sidebarLinks.forEach(l => l.classList.remove('active'));
+      // Add active class to current clicked link
+      link.classList.add('active');
+
+      // Hide all tabs
+      tabs.forEach(t => t.classList.remove('active'));
+      // Show matching tab
+      const matchingTab = document.getElementById(`tab-${tabName}`);
+      if (matchingTab) {
+        matchingTab.classList.add('active');
+      }
+
+      // Update header subtitle text
+      if (headerSubtitle) {
+        headerSubtitle.textContent = `— ${tabName.toUpperCase().replace('-', ' ')}`;
+      }
+
+      // If mobile, close the drawer when clicking links
+      const sidebar = document.querySelector('.dashboard-sidebar');
+      if (sidebar) {
+        sidebar.classList.remove('active');
+      }
+    });
+  });
+}
+

@@ -51,36 +51,52 @@
   </header>
 
   <!-- SECTION 1: HERO SECTION -->
-  <section class="hero">
+  <section class="hero home-hero">
     <div class="container hero-grid">
       <div class="hero-content">
         <div class="hero-tag">⚡ HIGH-PERFORMANCE MYSQL TUNING</div>
         <h1 class="hero-title">Eliminate Slow SQL Queries. <span>Accelerate Your App.</span></h1>
         <p class="hero-description">Is your MySQL database throttling your app performance? I specialize in query rewriting, index design, schema design, and buffer pool optimization to boost response times by up to 100x.</p>
         <div class="hero-actions">
-          <a href="pages/dashboard.html" class="btn btn-primary">Try Demo Dashboard</a>
+          <a href="pages/dashboard.html" class="btn btn-primary">Try Demo</a>
           <a href="pages/contact.html" class="btn btn-secondary">Get DB Audit</a>
         </div>
       </div>
       <div class="hero-visual">
-        <div class="db-animation card-glass">
+        <div class="card-glass home-hero-card" style="text-align: center;">
           <h4 style="margin-bottom: 15px; color: var(--primary);">Real-time DB Optimizer Load</h4>
           <!-- Custom SVG for premium look -->
-          <svg viewBox="0 0 400 200" width="100%" height="auto" style="overflow: visible;">
+          <svg viewBox="0 0 400 180" width="100%" height="auto" style="overflow: visible;">
             <defs>
               <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stop-color="var(--secondary)" stop-opacity="0.4"/>
                 <stop offset="100%" stop-color="var(--primary)" stop-opacity="0"/>
               </linearGradient>
             </defs>
-            <path d="M0,150 L50,140 L100,160 L150,40 L200,180 L250,50 L300,10 L350,15 L400,5" fill="none" stroke="var(--primary)" stroke-width="4" stroke-linecap="round"/>
-            <path d="M0,150 L50,140 L100,160 L150,40 L200,180 L250,50 L300,10 L350,15 L400,5 L400,200 L0,200 Z" fill="url(#chartGrad)"/>
-            <circle cx="150" cy="40" r="6" fill="var(--accent)"/>
-            <circle cx="300" cy="10" r="6" fill="var(--secondary)"/>
-            <text x="160" y="35" fill="var(--accent)" font-size="10" font-family="'JetBrains Mono'">Slow Query Point (11.3s)</text>
-            <text x="310" y="20" fill="var(--secondary)" font-size="10" font-family="'JetBrains Mono'">Optimized (0.01s)</text>
+            <path d="M0,130 L50,120 L100,140 L150,30 L200,160 L250,40 L300,8 L350,12 L400,4" fill="none" stroke="var(--primary)" stroke-width="4" stroke-linecap="round"/>
+            <path d="M0,130 L50,120 L100,140 L150,30 L200,160 L250,40 L300,8 L350,12 L400,4 L400,180 L0,180 Z" fill="url(#chartGrad)"/>
+            <circle cx="150" cy="30" r="6" fill="var(--accent)"/>
+            <circle cx="300" cy="8" r="6" fill="var(--secondary)"/>
+            <text x="160" y="25" fill="var(--accent)" font-size="10" font-family="'JetBrains Mono'">Slow Query Point (11.3s)</text>
+            <text x="310" y="15" fill="var(--secondary)" font-size="10" font-family="'JetBrains Mono'">Optimized (0.01s)</text>
           </svg>
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 15px;">Live performance response curve before and after query tuning.</p>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px;">Live performance response curve before and after query tuning.</p>
+          
+          <div style="display: flex; justify-content: space-between; gap: var(--space-4); width: 100%; margin-top: 20px; border-top: 1px solid var(--border-color); padding-top: 15px; flex-wrap: wrap;">
+            <div style="text-align: left; flex: 1; min-width: 140px;">
+              <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; letter-spacing: 0.5px;">Average Query Delay</span>
+              <div style="font-size: 1.4rem; font-weight: 800; color: var(--accent); margin-top: 2px;">4.82s → 0.012s</div>
+            </div>
+            <div style="text-align: right; flex: 1; min-width: 140px;">
+              <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; letter-spacing: 0.5px;">Memory Usage Gain</span>
+              <div style="font-size: 1.4rem; font-weight: 800; color: var(--secondary); margin-top: 2px;">+38% Saved</div>
+            </div>
+          </div>
+          
+          <div style="display: flex; align-items: center; gap: 8px; margin-top: 15px; background: rgba(0, 245, 212, 0.04); border: 1px solid rgba(0, 245, 212, 0.15); padding: 8px 16px; border-radius: 8px; width: 100%; justify-content: center;">
+            <span style="width: 8px; height: 8px; background: var(--secondary); border-radius: 50%; box-shadow: 0 0 8px var(--secondary); display: inline-block;"></span>
+            <span style="font-size: 0.75rem; font-family: 'JetBrains Mono', monospace; color: var(--text-main); font-weight: 600; letter-spacing: 0.2px;">Query Optimizer Engine: ACTIVE</span>
+          </div>
         </div>
       </div>
     </div>
@@ -93,7 +109,7 @@
         <h2 class="section-title">Query Optimizer Playground</h2>
         <p class="section-subtitle">Simulate slow query index tuning. Paste or view a query below and watch how proper index optimization drops latency instantaneously.</p>
       </div>
-      <div class="card-glass" style="max-width: 800px; margin: 0 auto; padding: var(--space-8); text-align: left; align-items: stretch;">
+      <div class="card-glass query-playground-card" style="padding: var(--space-8); text-align: left; align-items: stretch;">
         <div style="margin-bottom: 15px;">
           <span style="font-size: 0.85rem; color: var(--accent); font-weight: 700; background: rgba(245, 158, 11, 0.1); padding: 4px 10px; border-radius: 4px;">SLOW QUERY DETECTED</span>
         </div>
@@ -119,21 +135,30 @@
         <h2 class="section-title">Database Tuning Outcomes</h2>
         <p class="section-subtitle">Real metrics representing verified client application databases optimized by DB Tuner.</p>
       </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-8);">
-        <div class="card-glass">
-          <div style="font-size: 3.5rem; font-weight: 800; color: var(--primary); font-family: 'Outfit';">98%</div>
-          <h4 style="margin-bottom: 10px;">Average Latency Drop</h4>
-          <p style="font-size: 0.9rem; color: var(--text-muted);">Mean query processing speeds drop from seconds into milliseconds.</p>
+      <div class="card-grid">
+        <div class="card-glass" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; text-align: center;">
+          <img src="https://techdocs.broadcom.com/content/dam/broadcom/techdocs/us/en/dita/carbon-black/carbon-black-app-control/carbon-black-app-control-sql-server-configuration-guide/images/GUID-2B3C4B9C-86A5-4154-918C-C62F391E81A8-en.png" alt="Average Latency Drop" style="width: 100%; height: 180px; object-fit: cover; display: block;">
+          <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <div style="font-size: 3.5rem; font-weight: 800; color: var(--primary); font-family: 'Outfit'; line-height: 1.1; margin-bottom: 10px;">98%</div>
+            <h4 style="margin-bottom: 10px;">Average Latency Drop</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">Mean query processing speeds drop from seconds into milliseconds.</p>
+          </div>
         </div>
-        <div class="card-glass">
-          <div style="font-size: 3.5rem; font-weight: 800; color: var(--secondary); font-family: 'Outfit';">1.2B+</div>
-          <h4 style="margin-bottom: 10px;">DB Rows Optimized</h4>
-          <p style="font-size: 0.9rem; color: var(--text-muted);">Expert scaling and partitioning across multi-terabyte datasets.</p>
+        <div class="card-glass" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; text-align: center;">
+          <img src="https://www.developernation.net/static/6dbbc6f87652b1156658e015f40f652f/09ca8/12-Ways-to-Optimize-SQL-Queries_-scaled.jpg" alt="DB Rows Optimized" style="width: 100%; height: 180px; object-fit: cover; display: block;">
+          <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <div style="font-size: 3.5rem; font-weight: 800; color: var(--secondary); font-family: 'Outfit'; line-height: 1.1; margin-bottom: 10px;">1.2B+</div>
+            <h4 style="margin-bottom: 10px;">DB Rows Optimized</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">Expert scaling and partitioning across multi-terabyte datasets.</p>
+          </div>
         </div>
-        <div class="card-glass">
-          <div style="font-size: 3.5rem; font-weight: 800; color: var(--accent); font-family: 'Outfit';">60%</div>
-          <h4 style="margin-bottom: 10px;">AWS RDS Cost Savings</h4>
-          <p style="font-size: 0.9rem; color: var(--text-muted);">Lower database CPU and IOPS demand means smaller instance pricing.</p>
+        <div class="card-glass" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; text-align: center;">
+          <img src="https://d1.awsstatic.com/onedam/marketing-channels/website/aws/en_US/cloud-data-migration/approved/images/What-is-Amazon-RDS-thumbanil.cba22999a40e8e94b2ac2dc1920ba8f8f43ca77f.jpg" alt="AWS RDS Cost Savings" style="width: 100%; height: 180px; object-fit: cover; display: block;">
+          <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <div style="font-size: 3.5rem; font-weight: 800; color: var(--accent); font-family: 'Outfit'; line-height: 1.1; margin-bottom: 10px;">60%</div>
+            <h4 style="margin-bottom: 10px;">AWS RDS Cost Savings</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">Lower database CPU and IOPS demand means smaller instance pricing.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -146,29 +171,35 @@
         <h2 class="section-title">My Professional Toolkit</h2>
         <p class="section-subtitle">Comprehensive freelance MySQL scaling services built for startup tech leads and dev teams.</p>
       </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-8);">
-        <div class="card-glass">
-          <div style="font-size: 2.5rem; margin-bottom: 15px;">🔍</div>
-          <h3 style="margin-bottom: 12px;">Query Profiling & Rewrites</h3>
-          <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">Deconstruction of query plans (EXPLAIN), refactoring subqueries to JOINs, correcting bad data typings, and optimizing GROUP BY clauses.</p>
+      <div class="card-grid">
+        <div class="card-glass" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; text-align: center;">
+          <img src="https://www.txminds.com/wp-content/uploads/2026/01/Key-Principles-for-Effective-SQL-Query-Optimization.webp" alt="Query Profiling & Rewrites" style="width: 100%; height: 180px; object-fit: cover; display: block;">
+          <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <h3 style="margin-bottom: 12px;">Query Profiling & Rewrites</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">Deconstruction of query plans (EXPLAIN), refactoring subqueries to JOINs, correcting bad data typings, and optimizing GROUP BY clauses.</p>
+          </div>
         </div>
-        <div class="card-glass">
-          <div style="font-size: 2.5rem; margin-bottom: 15px;">⚡</div>
-          <h3 style="margin-bottom: 12px;">Composite Index Design</h3>
-          <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">Strategic layout of index strategies that support complex filtering, ordering, and full-text searches without duplicate overhead costs.</p>
+        <div class="card-glass" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; text-align: center;">
+          <img src="https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2019/10/Index-in-SQL.jpg" alt="Composite Index Design" style="width: 100%; height: 180px; object-fit: cover; display: block;">
+          <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <h3 style="margin-bottom: 12px;">Composite Index Design</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">Strategic layout of index strategies that support complex filtering, ordering, and full-text searches without duplicate overhead costs.</p>
+          </div>
         </div>
-        <div class="card-glass">
-          <div style="font-size: 2.5rem; margin-bottom: 15px;">⚙️</div>
-          <h3 style="margin-bottom: 12px;">InnoDB Configuration</h3>
-          <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">Tuning variable sizes like `innodb_buffer_pool_size`, transaction logs, thread limits, and flush methods tailored to server capacities.</p>
+        <div class="card-glass" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; text-align: center;">
+          <img src="https://www.percona.com/wp-content/uploads/2026/03/Blank-Flowchart-New-Page-3.jpeg" alt="InnoDB Configuration" style="width: 100%; height: 180px; object-fit: cover; display: block;">
+          <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <h3 style="margin-bottom: 12px;">InnoDB Configuration</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">Tuning variable sizes like `innodb_buffer_pool_size`, transaction logs, thread limits, and flush methods tailored to server capacities.</p>
+          </div>
         </div>
       </div>
 
       <!-- Added image visual for Section 4 -->
-      <div class="card-glass" style="margin-top: var(--space-12); max-width: 1000px; margin-left: auto; margin-right: auto; padding: 0; overflow: hidden; border-radius: var(--border-radius-lg); display: block;">
-        <div style="display: grid; grid-template-columns: 1.2fr 1fr; align-items: center; width: 100%;">
+      <div class="card-glass" style="margin-top: var(--space-12); width: 100%; padding: 0; overflow: hidden; border-radius: var(--border-radius-lg); display: block;">
+        <div class="responsive-grid-12-10" style="align-items: center; width: 100%;">
           <img src="assets/images/database_server_cluster.png" alt="Database Server Clusters" style="width: 100%; height: 320px; object-fit: cover; display: block; border: 0;">
-          <div style="padding: var(--space-8); text-align: left;">
+          <div style="padding: var(--space-8); text-align: center; display: flex; flex-direction: column; align-items: center;">
             <span style="color: var(--secondary); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px;">PROACTIVE HOST MANAGEMENT</span>
             <h3 style="margin-top: 10px; margin-bottom: 15px; font-size: 1.7rem;">Automated MySQL Cluster Auditing</h3>
             <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">We hook deep metrics analysis directly into your cluster nodes to prevent locking, check buffer pool hit ratios, and isolate slow threads before outages happen.</p>
@@ -185,20 +216,22 @@
         <h2 class="section-title">Schema Optimization Success</h2>
         <p class="section-subtitle">Real-world results on high-throughput microservices database scaling.</p>
       </div>
-      <div class="card-glass" style="max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); padding: var(--space-8); text-align: left; align-items: center;">
-        <div>
-          <span style="color: var(--primary); font-weight: 700; font-size: 0.85rem; text-transform: uppercase;">SAAS CLIENT CASE STUDY</span>
-          <h3 style="margin: 10px 0 15px 0; font-size: 1.8rem;">Fintech Transaction Log Tuning</h3>
-          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px; line-height: 1.6;">Our client experienced extreme timeouts on transaction history searches with 45 million active rows. We refactored legacy index definitions and resolved bad implicit conversions.</p>
-          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 0.9rem; margin-bottom: 20px;">
-            <li>❌ <strong>Before:</strong> 14.8 seconds query time & severe table locking</li>
-            <li>✓ <strong>After:</strong> 0.003 seconds execution time & zero locks</li>
-            <li>⚡ <strong>Savings:</strong> 99.9% faster, CPU usage dropped by 70%</li>
-          </ul>
-          <a href="pages/about.html" class="btn btn-secondary">Read Case Study</a>
-        </div>
-        <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--border-radius); overflow: hidden; padding: 0;">
-          <img src="assets/images/mysql_performance_chart.png" alt="MySQL Optimization Chart" style="width: 100%; height: 260px; object-fit: cover; display: block; border: 0;">
+      <div class="card-glass" style="width: 100%; padding: var(--space-8); overflow: hidden;">
+        <div class="responsive-grid-2" style="align-items: center; width: 100%;">
+          <div style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+            <span style="color: var(--primary); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px;">SAAS CLIENT CASE STUDY</span>
+            <h3 style="margin: 10px 0 15px 0; font-size: 1.8rem;">Fintech Transaction Log Tuning</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px; line-height: 1.6;">Our client experienced extreme timeouts on transaction history searches with 45 million active rows. We refactored legacy index definitions and resolved bad implicit conversions.</p>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 0.95rem; margin: 0 auto 20px auto; text-align: left; align-items: flex-start; max-width: fit-content; padding: 0;">
+              <li>❌ <strong>Before:</strong> 14.8 seconds query time & severe table locking</li>
+              <li>✓ <strong>After:</strong> 0.003 seconds execution time & zero locks</li>
+              <li>⚡ <strong>Savings:</strong> 99.9% faster, CPU usage dropped by 70%</li>
+            </ul>
+            <a href="pages/about.html" class="btn btn-secondary" style="margin: 0 auto; align-self: center;">Read Case Study</a>
+          </div>
+          <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--border-radius); overflow: hidden; padding: 0;">
+            <img src="assets/images/mysql_performance_chart.png" alt="MySQL Optimization Chart" style="width: 100%; height: 260px; object-fit: cover; display: block; border: 0;">
+          </div>
         </div>
       </div>
     </div>
@@ -213,9 +246,9 @@
       </div>
       <div style="max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: var(--space-6); align-items: center;">
         <p style="color: var(--text-muted); line-height: 1.6;">Whether you are dealing with critical latency peaks, preparing for a high-traffic product launch, or looking to lower cloud costs, get a professional assessment today.</p>
-        <div style="display: flex; gap: var(--space-4);">
+        <div class="two-buttons">
           <a href="pages/contact.html" class="btn btn-primary">Book Consultation</a>
-          <a href="pages/services.html" class="btn btn-secondary">Explore Service Plans</a>
+          <a href="pages/services.html" class="btn btn-secondary">Explore Service</a>
         </div>
       </div>
     </div>

@@ -28,28 +28,28 @@
     <ul class="sidebar-menu">
       <li class="sidebar-menu-title" style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; padding: 10px 16px; letter-spacing: 0.5px;">Main Menu</li>
       <li>
-        <a href="#" class="sidebar-link active">
+        <a href="javascript:void(0);" class="sidebar-link active" data-tab="overview">
           <span>📊</span> Overview
         </a>
       </li>
       <li>
-        <a href="#uploader-card" class="sidebar-link">
+        <a href="javascript:void(0);" class="sidebar-link" data-tab="upload">
           <span>📤</span> Upload Logs
         </a>
       </li>
       <li>
-        <a href="#query-workspace" class="sidebar-link">
+        <a href="javascript:void(0);" class="sidebar-link" data-tab="queries">
           <span>⚡</span> Query Workspace
         </a>
       </li>
       <li>
-        <a href="services.html" class="sidebar-link">
+        <a href="javascript:void(0);" class="sidebar-link" data-tab="services">
           <span>🔑</span> My Service Plans
         </a>
       </li>
       <li class="sidebar-menu-title" style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; padding: 20px 16px 10px 16px; letter-spacing: 0.5px;">Account</li>
       <li>
-        <a href="contact.html" class="sidebar-link">
+        <a href="javascript:void(0);" class="sidebar-link" data-tab="settings">
           <span>⚙️</span> Settings
         </a>
       </li>
@@ -86,78 +86,200 @@
     <!-- Scrollable content pane -->
     <div class="dashboard-content-scroll">
       
-      <!-- GRID OF KPI METRIC CARDS -->
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-6); margin-bottom: var(--space-8);">
-        
-        <div class="card-glass" style="padding: 20px; align-items: stretch; text-align: left;">
-          <div style="font-size: 0.75rem; font-weight:700; text-transform:uppercase; color:var(--text-muted); letter-spacing:0.5px; margin-bottom: 5px;">Average Query Latency</div>
-          <div style="display: flex; align-items: baseline; gap: 10px;">
-            <div style="font-size: 2.2rem; font-weight:800; color:var(--accent);" id="query-savings-val">4.82s</div>
-            <span style="font-size: 0.85rem; color: var(--accent); font-weight: 700;">⚠️ Slow</span>
+      <!-- TAB 1: OVERVIEW -->
+      <div id="tab-overview" class="dashboard-tab-content active">
+        <!-- GRID OF KPI METRIC CARDS -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-6); margin-bottom: var(--space-8);">
+          
+          <div class="card-glass" style="padding: 20px; align-items: stretch; text-align: left;">
+            <div style="font-size: 0.75rem; font-weight:700; text-transform:uppercase; color:var(--text-muted); letter-spacing:0.5px; margin-bottom: 5px;">Average Query Latency</div>
+            <div style="display: flex; align-items: baseline; gap: 10px;">
+              <div style="font-size: 2.2rem; font-weight:800; color:var(--accent);" id="query-savings-val">4.82s</div>
+              <span style="font-size: 0.85rem; color: var(--accent); font-weight: 700;">⚠️ Slow</span>
+            </div>
+            <div style="background: var(--border-color); height: 6px; border-radius: 10px; overflow:hidden; margin-top: 15px;">
+              <div style="background: var(--accent); width: 85%; height: 100%; transition: width var(--transition-slow);" id="query-speedup-progress"></div>
+            </div>
           </div>
-          <div style="background: var(--border-color); height: 6px; border-radius: 10px; overflow:hidden; margin-top: 15px;">
-            <div style="background: var(--accent); width: 85%; height: 100%; transition: width var(--transition-slow);" id="query-speedup-progress"></div>
+
+          <div class="card-glass" style="padding: 20px; align-items: stretch; text-align: left;">
+            <div style="font-size: 0.75rem; font-weight:700; text-transform:uppercase; color:var(--text-muted); letter-spacing:0.5px; margin-bottom: 5px;">Active Table Indexes</div>
+            <div style="display: flex; align-items: baseline; gap: 10px;">
+              <div style="font-size: 2.2rem; font-weight:800; color:var(--primary);">12</div>
+              <span style="font-size: 0.85rem; color: var(--secondary); font-weight: 700;">✓ Healthy</span>
+            </div>
+            <div style="background: var(--border-color); height: 6px; border-radius: 10px; overflow:hidden; margin-top: 15px;">
+              <div style="background: var(--primary); width: 100%; height: 100%;"></div>
+            </div>
           </div>
+
+          <div class="card-glass" style="padding: 20px; align-items: stretch; text-align: left;">
+            <div style="font-size: 0.75rem; font-weight:700; text-transform:uppercase; color:var(--text-muted); letter-spacing:0.5px; margin-bottom: 5px;">Host CPU Capacity</div>
+            <div style="display: flex; align-items: baseline; gap: 10px;">
+              <div style="font-size: 2.2rem; font-weight:800; color:var(--accent);">94.1%</div>
+              <span style="font-size: 0.85rem; color: var(--accent); font-weight: 700;">⚠️ Throttled</span>
+            </div>
+            <div style="background: var(--border-color); height: 6px; border-radius: 10px; overflow:hidden; margin-top: 15px;">
+              <div style="background: var(--accent); width: 94%; height: 100%;"></div>
+            </div>
+          </div>
+
+          <div class="card-glass" style="padding: 20px; align-items: stretch; text-align: left;">
+            <div style="font-size: 0.75rem; font-weight:700; text-transform:uppercase; color:var(--text-muted); letter-spacing:0.5px; margin-bottom: 5px;">Cloud RDS Price Savings</div>
+            <div style="display: flex; align-items: baseline; gap: 10px;">
+              <div style="font-size: 2.2rem; font-weight:800; color:var(--secondary);">62.4%</div>
+              <span style="font-size: 0.85rem; color: var(--secondary); font-weight: 700;">✓ Optimizing</span>
+            </div>
+            <div style="background: var(--border-color); height: 6px; border-radius: 10px; overflow:hidden; margin-top: 15px;">
+              <div style="background: var(--secondary); width: 62%; height: 100%;"></div>
+            </div>
+          </div>
+
         </div>
 
-        <div class="card-glass" style="padding: 20px; align-items: stretch; text-align: left;">
-          <div style="font-size: 0.75rem; font-weight:700; text-transform:uppercase; color:var(--text-muted); letter-spacing:0.5px; margin-bottom: 5px;">Active Table Indexes</div>
-          <div style="display: flex; align-items: baseline; gap: 10px;">
-            <div style="font-size: 2.2rem; font-weight:800; color:var(--primary);">12</div>
-            <span style="font-size: 0.85rem; color: var(--secondary); font-weight: 700;">✓ Healthy</span>
-          </div>
-          <div style="background: var(--border-color); height: 6px; border-radius: 10px; overflow:hidden; margin-top: 15px;">
-            <div style="background: var(--primary); width: 100%; height: 100%;"></div>
-          </div>
-        </div>
-
-        <div class="card-glass" style="padding: 20px; align-items: stretch; text-align: left;">
-          <div style="font-size: 0.75rem; font-weight:700; text-transform:uppercase; color:var(--text-muted); letter-spacing:0.5px; margin-bottom: 5px;">Host CPU Capacity</div>
-          <div style="display: flex; align-items: baseline; gap: 10px;">
-            <div style="font-size: 2.2rem; font-weight:800; color:var(--accent);">94.1%</div>
-            <span style="font-size: 0.85rem; color: var(--accent); font-weight: 700;">⚠️ Throttled</span>
-          </div>
-          <div style="background: var(--border-color); height: 6px; border-radius: 10px; overflow:hidden; margin-top: 15px;">
-            <div style="background: var(--accent); width: 94%; height: 100%;"></div>
-          </div>
-        </div>
-
-        <div class="card-glass" style="padding: 20px; align-items: stretch; text-align: left;">
-          <div style="font-size: 0.75rem; font-weight:700; text-transform:uppercase; color:var(--text-muted); letter-spacing:0.5px; margin-bottom: 5px;">Cloud RDS Price Savings</div>
-          <div style="display: flex; align-items: baseline; gap: 10px;">
-            <div style="font-size: 2.2rem; font-weight:800; color:var(--secondary);">62.4%</div>
-            <span style="font-size: 0.85rem; color: var(--secondary); font-weight: 700;">✓ Optimizing</span>
-          </div>
-          <div style="background: var(--border-color); height: 6px; border-radius: 10px; overflow:hidden; margin-top: 15px;">
-            <div style="background: var(--secondary); width: 62%; height: 100%;"></div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- FILE UPLOADER & LOG PARSER CONTAINER -->
-      <div class="card-glass" id="uploader-card" style="padding: var(--space-8); margin-bottom: var(--space-8); text-align: center; border-style: dashed; border-width: 2px;">
-        <div id="upload-area" style="cursor: pointer; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-          <input type="file" id="file-input" style="display: none;" accept=".log,.sql,.txt">
-          <div id="upload-text" style="display: flex; flex-direction: column; align-items: center;">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary); margin-bottom: 10px;">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="17 8 12 3 7 8"></polyline>
-              <line x1="12" y1="3" x2="12" y2="15"></line>
-            </svg>
-            <p><strong>Upload MySQL Slow Query Log</strong> or drag and drop</p>
-            <span style="font-size: 0.8rem; color: var(--text-muted)">Supports .log, .sql, .txt files up to 50MB</span>
-          </div>
+        <!-- System Recommendations Summary card -->
+        <div class="card-glass" style="text-align: left; align-items: stretch; padding: var(--space-8); margin-bottom: var(--space-8);">
+          <h3 style="margin-bottom: 15px; color: var(--primary);">System Recommendations Summary</h3>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 0.95rem; line-height: 1.6;">
+            <li>🛑 <strong>High CPU Load:</strong> Throttling detected on DB replica instances. Consider adding buffer pool caching.</li>
+            <li>⚠️ <strong>3 Unindexed Queries:</strong> Scan operations are creating lock queues on transaction files.</li>
+            <li>✓ <strong>Memory Buffer:</strong> Temp tables are successfully allocated to RAM storage limits.</li>
+          </ul>
         </div>
       </div>
 
-      <!-- WORKSPACE SLOW QUERY WORKLIST -->
-      <div id="query-workspace">
-        <h3 style="font-family:'Outfit'; margin-bottom: var(--space-4);">Slow SQL Query Bottlenecks</h3>
-        <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom: var(--space-6);">Parsed directly from slow query files. Click **Test Index/Fix** to verify latency adjustments.</p>
-        
-        <div id="query-list" style="display: flex; flex-direction: column; gap: var(--space-4);">
-          <!-- Dynamic logs inject via dashboard.js -->
+      <!-- TAB 2: UPLOAD LOGS -->
+      <div id="tab-upload" class="dashboard-tab-content">
+        <!-- FILE UPLOADER & LOG PARSER CONTAINER -->
+        <div class="card-glass" id="uploader-card" style="padding: var(--space-8); margin-bottom: var(--space-8); text-align: center; border-style: dashed; border-width: 2px;">
+          <div id="upload-area" style="cursor: pointer; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <input type="file" id="file-input" style="display: none;" accept=".log,.sql,.txt">
+            <div id="upload-text" style="display: flex; flex-direction: column; align-items: center;">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary); margin-bottom: 10px;">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="17 8 12 3 7 8"></polyline>
+                <line x1="12" y1="3" x2="12" y2="15"></line>
+              </svg>
+              <p><strong>Upload MySQL Slow Query Log</strong> or drag and drop</p>
+              <span style="font-size: 0.8rem; color: var(--text-muted)">Supports .log, .sql, .txt files up to 50MB</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- History table -->
+        <div class="card-glass" style="text-align: left; align-items: stretch; padding: var(--space-8); overflow-x: auto;">
+          <h3 style="margin-bottom: 15px;">Upload Log History</h3>
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem; min-width: 500px;">
+            <thead>
+              <tr style="border-bottom: 2px solid var(--border-color); text-align: left;">
+                <th style="padding: 10px;">Log File Name</th>
+                <th style="padding: 10px;">Date Uploaded</th>
+                <th style="padding: 10px;">File Size</th>
+                <th style="padding: 10px;">Queries Identified</th>
+                <th style="padding: 10px;">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 12px;">mysql-slow-production-2026-05-12.log</td>
+                <td style="padding: 12px;">May 12, 2026</td>
+                <td style="padding: 12px;">18.4 MB</td>
+                <td style="padding: 12px; color: var(--accent); font-weight: 700;">14 slow queries</td>
+                <td style="padding: 12px; color: var(--secondary); font-weight: 700;">Parsed</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 12px;">aurora-slow-query-export.txt</td>
+                <td style="padding: 12px;">May 10, 2026</td>
+                <td style="padding: 12px;">5.1 MB</td>
+                <td style="padding: 12px; color: var(--accent); font-weight: 700;">8 slow queries</td>
+                <td style="padding: 12px; color: var(--secondary); font-weight: 700;">Parsed</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- TAB 3: QUERY WORKSPACE -->
+      <div id="tab-queries" class="dashboard-tab-content">
+        <!-- WORKSPACE SLOW QUERY WORKLIST -->
+        <div id="query-workspace">
+          <h3 style="font-family:'Outfit'; margin-bottom: var(--space-4);">Slow SQL Query Bottlenecks</h3>
+          <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom: var(--space-6);">Parsed directly from slow query files. Click **Test Index/Fix** to verify latency adjustments.</p>
+          
+          <div id="query-list" style="display: flex; flex-direction: column; gap: var(--space-4);">
+            <!-- Dynamic logs inject via dashboard.js -->
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 4: MY SERVICE PLANS -->
+      <div id="tab-services" class="dashboard-tab-content">
+        <div style="display: flex; flex-direction: column; gap: var(--space-8);">
+          <div class="card-glass" style="text-align: left; align-items: stretch; padding: var(--space-8); background: rgba(var(--primary-rgb), 0.03); border-color: var(--secondary);">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+              <div>
+                <span style="background: var(--secondary); color: #000; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase;">ACTIVE SUBSCRIPTION</span>
+                <h2 style="margin-top: 10px; margin-bottom: 5px;">Scale Audit & Fix Retainer</h2>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">Tuning coverage for high-volume apps up to 500 million database table records.</p>
+              </div>
+              <div style="text-align: right;">
+                <div style="font-size: 2rem; font-weight: 800; color: var(--primary);">$3,499<span style="font-size: 1rem; font-weight: 500; color: var(--text-muted);">/month</span></div>
+                <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 5px;">Next billing date: <strong>June 01, 2026</strong></p>
+              </div>
+            </div>
+          </div>
+
+          <h3 style="font-family: 'Outfit';">Available Tuning Service Upgrades</h3>
+          <div class="card-grid">
+            <div class="card-glass" style="text-align: left; align-items: stretch; padding: var(--space-6);">
+              <h3>One-Off Tuneup</h3>
+              <div style="font-size: 1.8rem; font-weight: 800; color: var(--primary); margin: 10px 0;">$1,499 <span style="font-size: 0.9rem; font-weight: 400; color: var(--text-muted);">Flat</span></div>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px;">Solve a critical production latency or lock issue immediately.</p>
+              <button class="btn btn-secondary" style="width: 100%; margin-top: auto;" onclick="showNotification('Service Upgrade', 'Upgrade request submitted! Alex Chen will contact you shortly.')">Upgrade Now</button>
+            </div>
+            <div class="card-glass" style="text-align: left; align-items: stretch; padding: var(--space-6); border-color: var(--secondary);">
+              <h3>Scale Audit & Fix</h3>
+              <div style="font-size: 1.8rem; font-weight: 800; color: var(--primary); margin: 10px 0;">$3,499 <span style="font-size: 0.9rem; font-weight: 400; color: var(--text-muted);">/month</span></div>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px;">Full architecture schema audits, query plan rewrites, and 24/7 monitoring.</p>
+              <button class="btn btn-primary" style="width: 100%; margin-top: auto;" disabled>Active Tier</button>
+            </div>
+            <div class="card-glass" style="text-align: left; align-items: stretch; padding: var(--space-6);">
+              <h3>Dedicated Retainer</h3>
+              <div style="font-size: 1.8rem; font-weight: 800; color: var(--primary); margin: 10px 0;">Custom <span style="font-size: 0.9rem; font-weight: 400; color: var(--text-muted);">Pricing</span></div>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px;">Enterprise-grade DBA team with response time guarantees and failover setup.</p>
+              <button class="btn btn-secondary" style="width: 100%; margin-top: auto;" onclick="showNotification('Contact Sales', 'Sales inquiry submitted. Our team will reach out via email.')">Inquire Today</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 5: SETTINGS -->
+      <div id="tab-settings" class="dashboard-tab-content">
+        <div class="card-glass" style="text-align: left; align-items: stretch; padding: var(--space-8); max-width: 700px; margin: 0 auto;">
+          <h3 style="margin-bottom: 20px; color: var(--primary);">Database Connection Settings</h3>
+          <form onsubmit="event.preventDefault(); showNotification('Settings Saved', 'Connection credentials saved successfully!');">
+            <div class="form-group">
+              <label class="form-label" for="db-host">Database Host Server</label>
+              <input type="text" id="db-host" class="form-control" value="rds-prod-mysql-01.us-east-1.rds.amazonaws.com">
+            </div>
+            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: var(--space-4); width: 100%;">
+              <div class="form-group" style="margin-bottom: var(--space-4);">
+                <label class="form-label" for="db-name">Database Name</label>
+                <input type="text" id="db-name" class="form-control" value="sqltuner_production">
+              </div>
+              <div class="form-group" style="margin-bottom: var(--space-4);">
+                <label class="form-label" for="db-port">Connection Port</label>
+                <input type="text" id="db-port" class="form-control" value="3306">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="api-key">Tuner Collector Agent API Key</label>
+              <input type="password" id="api-key" class="form-control" value="sk_tuner_live_48209384029481">
+            </div>
+            <div style="display: flex; justify-content: flex-end; gap: var(--space-4); margin-top: 15px;">
+              <button type="submit" class="btn btn-primary">Save Settings</button>
+            </div>
+          </form>
         </div>
       </div>
 

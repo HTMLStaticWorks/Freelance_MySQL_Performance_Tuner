@@ -3,11 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MySQL Performance Blog - Learn Schema & Index Tuning</title>
+  <title>MySQL Performance Blog - Learn Schema &amp; Index Tuning</title>
   <meta name="description" content="Read expert tutorials on MySQL indexing, query optimization, connection pool limits, deadlock resolution, and server configuration scripts.">
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/dark-mode.css">
   <link rel="stylesheet" href="../assets/css/rtl.css">
+  <style>
+    /* Square image wrapper for blog cards */
+    .blog-card-img-wrap {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border-color);
+      flex-shrink: 0;
+    }
+    .blog-card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .card-glass:hover .blog-card-img-wrap img {
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 <body>
 
@@ -51,7 +71,7 @@
   </header>
 
   <!-- SECTION 1: HERO & FEATURED POST -->
-  <section class="hero">
+  <section class="hero hero-center-layout">
     <div class="container hero-grid">
       <div class="hero-content">
         <div class="hero-tag">📖 EXPERT SQL TUTORIALS</div>
@@ -62,26 +82,11 @@
           <a href="#subscribe-section" class="btn btn-secondary">Get Tuning Tips</a>
         </div>
       </div>
-      <div class="hero-visual">
-        <img src="../assets/images/mysql_performance_chart.png" alt="MySQL Blog Performance Metrics" style="width: 100%; max-width: 440px; height: 300px; object-fit: cover; border-radius: var(--border-radius-lg); border: 1px solid var(--border-color); display: block;">
-      </div>
+      
     </div>
   </section>
 
-  <!-- SEPARATED HERO CARD SECTION -->
-  <section class="section" style="padding: var(--space-4) 0 var(--space-10) 0;">
-    <div class="container">
-      <div class="card-glass" style="max-width: 680px; margin: 0 auto; padding: var(--space-8); display: flex; align-items: center; gap: var(--space-6); text-align: left; flex-wrap: wrap;">
-        <div style="font-size: 4rem;">📖</div>
-        <div style="flex: 1; min-width: 250px;">
-          <span style="background: rgba(37, 99, 235, 0.1); color: var(--primary); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">Featured Article</span>
-          <h3 style="margin: 10px 0; font-size: 1.6rem;">Understanding Composite Indexes in MySQL</h3>
-          <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 15px;">Discover how the order of columns inside a multi-column composite index determines whether MySQL will utilize it during query sorting and filtering.</p>
-          <a href="#" class="btn btn-secondary">Read Featured Article</a>
-        </div>
-      </div>
-    </div>
-  </section>
+  
 
   <!-- SECTION 2: ARTICLES GRID -->
   <section class="section" id="articles-grid" style="background: rgba(var(--primary-rgb), 0.02); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
@@ -90,30 +95,78 @@
         <h2 class="section-title">Latest DB Tutorials</h2>
         <p class="section-subtitle">Deep technical insights, complete with code snippets and real-world results.</p>
       </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-8);">
+      <div class="card-grid">
         
-        <div class="card-glass">
-          <div style="font-size: 2.5rem; margin-bottom: 15px;">🔍</div>
-          <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--primary); font-weight: 700; margin-bottom: 5px;">Indexing</span>
-          <h3 style="margin-bottom: 10px; font-size: 1.25rem;">Why SELECT * Throttles Network</h3>
-          <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 15px;">Learn why requesting unnecessary columns blocks covering index scans and increases network transfer overhead inside clouds.</p>
-          <a href="#" class="btn btn-text" style="font-size: 0.8rem; font-weight: 700;">Read Tutorial →</a>
+        <div class="card-glass" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; text-align: center;">
+          <div class="blog-card-img-wrap">
+            <img src="https://haptic-networks.com/wp-content/uploads/2023/10/rocket-laptop-scaled.jpg" alt="Indexing">
+          </div>
+          <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--primary); font-weight: 700; margin-bottom: 5px;">Indexing</span>
+            <h3 style="margin-bottom: 10px; font-size: 1.25rem;">Why SELECT * Throttles Network</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 15px;">Learn why requesting unnecessary columns blocks covering index scans and increases network transfer overhead inside clouds.</p>
+            <a href="#" class="btn btn-text" style="font-size: 0.8rem; font-weight: 700;">Read Tutorial →</a>
+          </div>
         </div>
 
-        <div class="card-glass">
-          <div style="font-size: 2.5rem; margin-bottom: 15px;">⚙️</div>
-          <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--primary); font-weight: 700; margin-bottom: 5px;">Server Config</span>
-          <h3 style="margin-bottom: 10px; font-size: 1.25rem;">Tuning innodb_buffer_pool</h3>
-          <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 15px;">A definitive math guide to configuring database buffer pools and log file structures without crashing OS processes.</p>
-          <a href="#" class="btn btn-text" style="font-size: 0.8rem; font-weight: 700;">Read Tutorial →</a>
+        <div class="card-glass" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; text-align: center;">
+          <div class="blog-card-img-wrap">
+            <img src="https://scalegrid.io/wp-content/uploads/blog-feature-img_calculating-innodb-buffer-pool-size-for-your-mysql-server.jpeg" alt="Config">
+          </div>
+          <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--primary); font-weight: 700; margin-bottom: 5px;">Server Config</span>
+            <h3 style="margin-bottom: 10px; font-size: 1.25rem;">Tuning innodb_buffer_pool</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 15px;">A definitive math guide to configuring database buffer pools and log file structures without crashing OS processes.</p>
+            <a href="#" class="btn btn-text" style="font-size: 0.8rem; font-weight: 700;">Read Tutorial →</a>
+          </div>
         </div>
 
-        <div class="card-glass">
-          <div style="font-size: 2.5rem; margin-bottom: 15px;">🛑</div>
-          <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--primary); font-weight: 700; margin-bottom: 5px;">Troubleshooting</span>
-          <h3 style="margin-bottom: 10px; font-size: 1.25rem;">Diagnosing DB Lock Contentions</h3>
-          <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 15px;">How to find and resolve locking bottlenecks and transaction deadlocks using information schema log views.</p>
-          <a href="#" class="btn btn-text" style="font-size: 0.8rem; font-weight: 700;">Read Tutorial →</a>
+        <div class="card-glass" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; text-align: center;">
+          <div class="blog-card-img-wrap">
+            <img src="https://learn.microsoft.com/en-us/sql/relational-databases/media/diagnose-resolve-latch-contention/image10.png?view=sql-server-ver17" alt="Troubleshooting">
+          </div>
+          <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--primary); font-weight: 700; margin-bottom: 5px;">Troubleshooting</span>
+            <h3 style="margin-bottom: 10px; font-size: 1.25rem;">Diagnosing DB Lock Contentions</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 15px;">How to find and resolve locking bottlenecks and transaction deadlocks using information schema log views.</p>
+            <a href="#" class="btn btn-text" style="font-size: 0.8rem; font-weight: 700;">Read Tutorial →</a>
+          </div>
+        </div>
+
+        <div class="card-glass" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; text-align: center;">
+          <div class="blog-card-img-wrap">
+            <img src="https://www.sqlshack.com/wp-content/uploads/2018/05/word-image-50-1.png" alt="Replication">
+          </div>
+          <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--primary); font-weight: 700; margin-bottom: 5px;">High Availability</span>
+            <h3 style="margin-bottom: 10px; font-size: 1.25rem;">Master-Master Replication</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 15px;">Exploring the pros and cons of multi-master setups and how to handle auto-increment conflicts in distributed environments.</p>
+            <a href="#" class="btn btn-text" style="font-size: 0.8rem; font-weight: 700;">Read Tutorial →</a>
+          </div>
+        </div>
+
+        <div class="card-glass" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; text-align: center;">
+          <div class="blog-card-img-wrap">
+            <img src="https://www.finout.io/hs-fs/hubfs/AWS%20RDS.png?width=602&height=286&name=AWS%20RDS.png" alt="Cloud">
+          </div>
+          <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--primary); font-weight: 700; margin-bottom: 5px;">AWS RDS</span>
+            <h3 style="margin-bottom: 10px; font-size: 1.25rem;">Reducing RDS IOPS Costs</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 15px;">How optimizing your indexing strategy can directly reduce your AWS bill by lowering disk read/write operations.</p>
+            <a href="#" class="btn btn-text" style="font-size: 0.8rem; font-weight: 700;">Read Tutorial →</a>
+          </div>
+        </div>
+
+        <div class="card-glass" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; text-align: center;">
+          <div class="blog-card-img-wrap">
+            <img src="https://substackcdn.com/image/fetch/$s_!9clv!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F571827ac-b3da-44a3-886a-8ca9770bb443_1337x1600.png" alt="Schema">
+          </div>
+          <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--primary); font-weight: 700; margin-bottom: 5px;">Architecture</span>
+            <h3 style="margin-bottom: 10px; font-size: 1.25rem;">Horizontal Sharding Basics</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 15px;">When is the right time to shard? A guide to architectural patterns for databases exceeding single-node capacity.</p>
+            <a href="#" class="btn btn-text" style="font-size: 0.8rem; font-weight: 700;">Read Tutorial →</a>
+          </div>
         </div>
 
       </div>
@@ -138,10 +191,7 @@
         </form>
       </div>
 
-      <!-- Image visual in Newsletter section -->
-      <div style="margin-top: var(--space-10); width: 100%; max-width: 900px; margin-left: auto; margin-right: auto; overflow: hidden; border-radius: var(--border-radius-lg); border: 1px solid var(--border-color);">
-        <img src="../assets/images/database_server_cluster.png" alt="Database Technical Newsletter Admin" style="width: 100%; height: 260px; object-fit: cover; display: block;">
-      </div>
+      
     </div>
   </section>
 

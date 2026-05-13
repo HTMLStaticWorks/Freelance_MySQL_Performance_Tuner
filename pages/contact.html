@@ -10,6 +10,68 @@
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/dark-mode.css">
   <link rel="stylesheet" href="../assets/css/rtl.css">
+  <style>
+    /* Custom styles for contact page refinement */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: var(--space-8);
+      align-items: start;
+    }
+
+    @media (max-width: 992px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .info-card {
+      display: flex;
+      gap: var(--space-4);
+      padding: var(--space-6);
+      margin-bottom: var(--space-4);
+      transition: transform var(--transition-normal);
+    }
+
+    .info-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .info-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(var(--primary-rgb), 0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .info-icon svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+      margin-bottom: var(--space-4);
+    }
+
+    @media (max-width: 600px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .contact-hero {
+      padding: var(--space-16) 0 var(--space-10) 0;
+      background: radial-gradient(circle at top right, rgba(var(--primary-rgb), 0.05), transparent);
+    }
+  </style>
 </head>
 
 <body>
@@ -53,134 +115,180 @@
     </div>
   </header>
 
-  <!-- SECTION 1: HERO OVERVIEW -->
-  <section class="hero">
-    <div class="container hero-grid">
-      <div class="hero-content">
-        <div class="hero-tag">✉️ INQUIRE TODAY</div>
-        <h1 class="hero-title">Request Your <span>Database Audit</span></h1>
-        <p class="hero-description">Fill out the performance audit application form below. I will examine your schema structures, query workloads, and host capacities to design a detailed performance action plan.</p>
-        <div class="hero-actions">
-          <a href="#contact-form-section" class="btn btn-primary">Go to Form</a>
-          <a href="dashboard.html" class="btn btn-secondary">Analyze Slow Logs First</a>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <img src="../assets/images/mysql_performance_chart.png" alt="MySQL Diagnostic Metrics" style="width: 100%; max-width: 440px; height: 300px; object-fit: cover; border-radius: var(--border-radius-lg); border: 1px solid var(--border-color); display: block;">
+  <!-- CONTACT HERO SECTION -->
+  <section class="contact-hero">
+    <div class="container">
+      <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <div class="hero-tag" style="margin: 0 auto var(--space-4) auto;">✉️ GET IN TOUCH</div>
+        <h1 class="hero-title" style="font-size: clamp(2.5rem, 5vw, 4rem);">Let's Scale Your <span>Performance</span></h1>
+        <p class="hero-description" style="max-width: 600px; margin: 0 auto var(--space-8) auto;">Ready to eliminate bottlenecks? Reach out for a specialized MySQL audit or performance consultation.</p>
       </div>
     </div>
   </section>
 
-  <!-- SEPARATED HERO CARD SECTION -->
-  <section class="section" style="padding: var(--space-4) 0 var(--space-10) 0;">
+  <!-- MAIN CONTACT SECTION -->
+  <section class="section" style="padding-top: 0;">
     <div class="container">
-      <div class="card-glass" style="max-width: 680px; margin: 0 auto; padding: var(--space-8); display: flex; align-items: center; gap: var(--space-6); text-align: left; flex-wrap: wrap;">
-        <div style="font-size: 4rem;">⚡</div>
-        <div style="flex: 1; min-width: 250px;">
-          <h3 style="margin-bottom: 5px;">Guaranteed SLA</h3>
-          <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 12px;">Average response time is <strong>under 4 hours</strong> for enterprise tickets. Consultations are scheduled within 48 hours globally.</p>
-          <div style="border-top: 1px solid var(--border-color); padding-top: 15px; width: 100%;">
-            <p style="font-size: 0.8rem; font-weight: 700; color: var(--text-main); margin-bottom: 8px; letter-spacing: 0.5px; text-transform: uppercase;">Connect with Me</p>
-            <div style="display: flex; gap: 12px;">
-              <a href="https://twitter.com" class="social-link social-twitter" aria-label="Twitter" target="_blank" rel="noopener">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      <div class="contact-grid">
+        
+        <!-- LEFT COLUMN: CONTACT INFO & CARDS -->
+        <div class="contact-info-column">
+          <div class="info-card card-glass">
+            <div class="info-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            </div>
+            <div>
+              <h3 style="font-size: 1.1rem; margin-bottom: 5px;">Current Availability</h3>
+              <p style="font-size: 0.9rem; color: var(--text-muted);">Accepting <strong>2 new projects</strong> for May 2026 scheduling.</p>
+            </div>
+          </div>
+
+          <div class="info-card card-glass">
+            <div class="info-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </div>
+            <div>
+              <h3 style="font-size: 1.1rem; margin-bottom: 5px;">Working Hours</h3>
+              <p style="font-size: 0.9rem; color: var(--text-muted);">09:00 - 18:00 EST | Mon - Fri<br>Priority support for active retainers.</p>
+            </div>
+          </div>
+
+          <div class="info-card card-glass">
+            <div class="info-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <div>
+              <h3 style="font-size: 1.1rem; margin-bottom: 5px;">Office Location</h3>
+              <p style="font-size: 0.9rem; color: var(--text-muted);">Remote consulting worldwide.<br>Hub: Boston, MA, USA.</p>
+            </div>
+          </div>
+
+          <div class="info-card card-glass" style="background: rgba(var(--primary-rgb), 0.05); border-color: rgba(var(--primary-rgb), 0.2);">
+            <div class="info-icon" style="background: var(--primary); color: white;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 2 13 9 20 9 11 22 11 15 4 15 13 2"></polyline></svg>
+            </div>
+            <div>
+              <h3 style="font-size: 1.1rem; margin-bottom: 5px;">Guaranteed SLA</h3>
+              <p style="font-size: 0.9rem; color: var(--text-muted);">Response time <strong>under 4 hours</strong> for enterprise inquiries.</p>
+            </div>
+          </div>
+
+          <!-- Social Links Card -->
+          <div class="card-glass" style="padding: var(--space-6); text-align: center;">
+            <p style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); margin-bottom: 15px; letter-spacing: 1px; text-transform: uppercase;">Direct Channels</p>
+            <div style="display: flex; gap: 15px; justify-content: center;">
+              <a href="mailto:support@sqltuner.com" class="social-link" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: rgba(var(--primary-rgb), 0.1); border-radius: 50%; color: var(--primary);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
               </a>
-              <a href="https://linkedin.com" class="social-link social-linkedin" aria-label="LinkedIn" target="_blank" rel="noopener">
+              <a href="https://linkedin.com" class="social-link" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: rgba(var(--primary-rgb), 0.1); border-radius: 50%; color: var(--primary);">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
               </a>
-              <a href="https://github.com" class="social-link social-github" aria-label="GitHub" target="_blank" rel="noopener">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+              <a href="https://twitter.com" class="social-link" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: rgba(var(--primary-rgb), 0.1); border-radius: 50%; color: var(--primary);">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
               </a>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>  </section>
 
-  <!-- SECTION 2: CONTACT FORM -->
-  <section class="section" id="contact-form-section"
-    style="background: rgba(var(--primary-rgb), 0.02); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Audit Application Form</h2>
-        <p class="section-subtitle">Please fill in details about your database stack so we can provide the best possible
-          recommendations.</p>
-      </div>
-      <div class="card-glass" style="max-width: 600px; margin: 0 auto; padding: var(--space-8);">
-        <form novalidate>
-          <div
-            style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin-bottom: var(--space-4); width: 100%;">
-            <div class="form-group" style="margin: 0;">
-              <label class="form-label" for="full_name">Full Name</label>
-              <input class="form-control" type="text" id="full_name" placeholder="Alex Carter" required>
-              <span class="validation-tooltip"></span>
-            </div>
-            <div class="form-group" style="margin: 0;">
-              <label class="form-label" for="company_email">Work Email</label>
-              <input class="form-control" type="email" id="company_email" placeholder="alex@company.com" required>
-              <span class="validation-tooltip"></span>
-            </div>
+        <!-- RIGHT COLUMN: EXPANDED CONTACT FORM -->
+        <div class="contact-form-column">
+          <div class="card-glass" style="padding: var(--space-8);">
+            <form novalidate id="audit-form">
+              <h2 style="margin-bottom: var(--space-2); font-size: 1.5rem;">Audit Application</h2>
+              <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: var(--space-6);">Complete this form to receive a preliminary performance scope within 24 hours.</p>
+              
+              <div class="form-row">
+                <div class="form-group" style="margin: 0;">
+                  <label class="form-label" for="full_name">Full Name</label>
+                  <input class="form-control" type="text" id="full_name" placeholder="" required>
+                  <span class="validation-tooltip"></span>
+                </div>
+                <div class="form-group" style="margin: 0;">
+                  <label class="form-label" for="company_name">Company Name</label>
+                  <input class="form-control" type="text" id="company_name" placeholder="." required>
+                  <span class="validation-tooltip"></span>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group" style="margin: 0;">
+                  <label class="form-label" for="company_email">Work Email</label>
+                  <input class="form-control" type="email" id="company_email" placeholder="" required>
+                  <span class="validation-tooltip"></span>
+                </div>
+                <div class="form-group" style="margin: 0;">
+                  <label class="form-label" for="phone">Phone Number</label>
+                  <input class="form-control" type="tel" id="phone" placeholder="">
+                  <span class="validation-tooltip"></span>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group" style="margin: 0;">
+                  <label class="form-label" for="db_engine">Database Engine</label>
+                  <select class="form-control" id="db_engine" required>
+                    <option value="">Select Engine...</option>
+                    <option value="mysql">MySQL (Standalone)</option>
+                    <option value="mariadb">MariaDB</option>
+                    <option value="aurora">AWS Aurora MySQL</option>
+                    <option value="rds">AWS RDS MySQL</option>
+                    <option value="other">Other / Multi-Cloud</option>
+                  </select>
+                  <span class="validation-tooltip"></span>
+                </div>
+                <div class="form-group" style="margin: 0;">
+                  <label class="form-label" for="db_size">Data Volume</label>
+                  <select class="form-control" id="db_size" required>
+                    <option value="">Select Volume...</option>
+                    <option value="small">< 100 GB</option>
+                    <option value="medium">100 GB - 1 TB</option>
+                    <option value="large">1 TB - 10 TB</option>
+                    <option value="enterprise">10 TB+</option>
+                  </select>
+                  <span class="validation-tooltip"></span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="urgency">Project Urgency</label>
+                <select class="form-control" id="urgency" required>
+                  <option value="low">Exploring (Next 3 months)</option>
+                  <option value="medium">Planning (Next 30 days)</option>
+                  <option value="high">Critical (Immediate Help Needed)</option>
+                </select>
+                <span class="validation-tooltip"></span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="message">Detailed Problem Description</label>
+                <textarea class="form-control" id="message" rows="5" placeholder="Describe your performance issues, slow queries, or scaling challenges..." required></textarea>
+                <span class="validation-tooltip"></span>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%; padding: var(--space-4); font-size: 1rem; font-weight: 600;">
+                Submit Audit Request
+              </button>
+            </form>
           </div>
-          <div class="form-group">
-            <label class="form-label" for="db_size">Estimated Database Size (GB / Rows)</label>
-            <select class="form-control" id="db_size" required>
-              <option value="">Select Database Volume...</option>
-              <option value="small">Under 10 GB / < 1M Rows</option>
-              <option value="medium">10 - 100 GB / 1M - 50M Rows</option>
-              <option value="large">100 - 500 GB / 50M - 200M Rows</option>
-              <option value="enterprise">Over 500 GB / 200M+ Rows</option>
-            </select>
-            <span class="validation-tooltip"></span>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="slow_query">Sample Slow Query (Optional)</label>
-            <textarea class="form-control" id="slow_query" rows="4" placeholder="Paste SQL query here..."></textarea>
-            <span class="validation-tooltip"></span>
-          </div>
-          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: var(--space-4);">Submit
-            Application</button>
-        </form>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- SECTION 3: LIVE STATUS & MAP -->
-  <section class="section">
+  <!-- MAP SECTION -->
+  <section class="section" style="background: rgba(var(--primary-rgb), 0.02); border-top: 1px solid var(--border-color);">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Availability & Active Office Map</h2>
-        <p class="section-subtitle">We work across US and European timezones to provide secure database scaling.</p>
+        <h2 class="section-title">Global Presence</h2>
+        <p class="section-subtitle">While our team is remote-first, our primary operations hub is located in the heart of Boston's tech district.</p>
       </div>
-      <div
-        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-8); text-align: center; margin-bottom: var(--space-8);">
-        <div class="card-glass">
-          <div style="font-size: 2.5rem; margin-bottom: 10px;">🟢</div>
-          <h3>Availability</h3>
-          <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 10px;">Currently accepting **2 new tuning
-            projects** for May 2026 scheduling.</p>
-        </div>
-        <div class="card-glass">
-          <div style="font-size: 2.5rem; margin-bottom: 10px;">🌐</div>
-          <h3>Working Hours</h3>
-          <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 10px;">09:00 - 18:00 EST / Monday through
-            Friday. 24/7 pager active for active retainers.</p>
-        </div>
-        <div class="card-glass">
-          <div style="font-size: 2.5rem; margin-bottom: 10px;">📍</div>
-          <h3>Office Location</h3>
-          <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 10px;">Remote consulting worldwide. Main
-            operations based in Boston, MA, USA.</p>
-        </div>
-      </div>
-
-      <!-- Interactive Google Map Frame -->
-      <div class="card-glass"
-        style="width: 100%; height: 380px; overflow: hidden; padding: 0; position: relative; border-radius: var(--border-radius-lg);">
+      
+      <div class="card-glass" style="width: 100%; height: 450px; overflow: hidden; padding: 0; border-radius: var(--border-radius-lg); box-shadow: var(--shadow-lg);">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d188701.1205367615!2d-71.18131393661137!3d42.314264673898835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e3652d0d3d311b%3A0x787cbf240162e8a0!2sBoston%2C%20MA%2C%20USA!5e0!3m2!1sen!2s!4v1715530000000!5m2!1sen!2s"
           width="100%" height="100%"
-          style="border:0; filter: grayscale(0.2) contrast(1.1); transition: filter var(--transition-normal);"
+          style="border:0; filter: grayscale(0.5) invert(0.05); transition: filter var(--transition-normal);"
           allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
         </iframe>
       </div>

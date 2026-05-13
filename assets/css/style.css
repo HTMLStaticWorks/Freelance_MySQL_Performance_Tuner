@@ -32,6 +32,7 @@
   --space-4: 16px;
   --space-6: 24px;
   --space-8: 32px;
+  --space-10: 40px;
   --space-12: 48px;
   --space-16: 64px;
   --space-24: 96px;
@@ -604,6 +605,37 @@ code, pre {
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
+/* Password Toggle Support */
+.password-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.password-toggle {
+  position: absolute;
+  right: var(--space-4);
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--transition-fast);
+  z-index: 10;
+}
+
+.password-toggle:hover {
+  color: var(--primary);
+}
+
+.form-control.has-toggle {
+  padding-right: calc(var(--space-10) + var(--space-2));
+}
+
 /* Form validation validation state styles */
 .form-control.is-invalid {
   border-color: #ef4444;
@@ -908,11 +940,21 @@ code, pre {
   }
 }
 
-/* Mobile Small specific adjustment */
+/* Mobile Small specific adjustment for Auth Pages */
 @media (max-width: 480px) {
+  .auth-wrapper {
+    flex-direction: column;
+    padding: var(--space-12) var(--space-6);
+    justify-content: center;
+  }
   .auth-header-controls {
-    top: var(--space-4);
-    right: var(--space-4);
+    position: relative;
+    top: auto;
+    right: auto;
+    margin-bottom: var(--space-6);
+    width: 100%;
+    max-width: 440px;
+    justify-content: flex-end;
   }
 }
 
@@ -922,3 +964,335 @@ code, pre {
     position: static;
   }
 }
+
+/* --- USER DESIGN CUSTOMIZATIONS --- */
+
+/* 1. Grid card alignment: center-aligned cards for 1 card, 2 cards, or more at 768px, 1024px, 1440px */
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+}
+
+.card-grid > .card-glass, .card-grid > .card {
+  flex: 1 1 300px;
+  max-width: 380px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Specific viewport adjustments for card centering */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .card-grid {
+    justify-content: center !important;
+  }
+  .card-grid > .card-glass, .card-grid > .card {
+    flex: 0 1 calc(50% - var(--space-4)) !important;
+    max-width: 360px !important;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .card-grid {
+    justify-content: center !important;
+  }
+  .card-grid > .card-glass, .card-grid > .card {
+    flex: 0 1 calc(33.333% - var(--space-6)) !important;
+    max-width: 360px !important;
+  }
+}
+
+@media (min-width: 1440px) {
+  .card-grid {
+    justify-content: center !important;
+  }
+  .card-grid > .card-glass, .card-grid > .card {
+    flex: 0 1 360px !important;
+  }
+}
+
+/* 2. Equal size and centered alignment for groups of two buttons inside any section */
+.hero-actions, .two-buttons {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: var(--space-4) !important;
+  width: 100% !important;
+  max-width: 520px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.hero-actions .btn, .two-buttons .btn {
+  flex: 1 !important;
+  min-width: 180px !important;
+  max-width: 240px !important;
+  width: 100% !important;
+  text-align: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+}
+
+/* 3. Home and Home 2 hero section left side content alignment & right side card size increase at 1440px */
+.home-hero .hero-content {
+  text-align: center !important;
+  align-items: center !important;
+}
+
+@media (min-width: 1440px) {
+  .home-hero .hero-visual .card-glass,
+  .home-hero .hero-visual .db-animation {
+    max-width: 580px !important;
+    width: 100% !important;
+    padding: var(--space-10) !important;
+  }
+}
+
+/* 4. About, Services, Blog, Contact hero section centering */
+.hero-center-layout .hero-grid {
+  grid-template-columns: 1fr !important;
+  text-align: center !important;
+  justify-items: center !important;
+}
+
+.hero-center-layout .hero-content {
+  align-items: center !important;
+  max-width: 800px !important;
+  margin: 0 auto !important;
+}
+
+.hero-center-layout .hero-description {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.home-hero .hero-tag, .hero-center-layout .hero-tag {
+  align-self: center !important;
+}
+
+/* 5. Dashboard Tab Switcher Visibility Styles */
+.dashboard-tab-content {
+  display: none !important;
+  animation: fadeIn 0.4s ease-in-out !important;
+}
+
+.dashboard-tab-content.active {
+  display: block !important;
+}
+
+/* 6. Mobile Small (480px / 360px) Overflows and Scalings */
+@media (max-width: 480px) {
+  .hero-actions, .two-buttons {
+    flex-direction: column !important;
+    gap: var(--space-3) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .hero-actions .btn, .two-buttons .btn {
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+  }
+  .hero-title {
+    font-size: 2.2rem !important;
+  }
+  .hero-description {
+    font-size: 0.95rem !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-title {
+    font-size: 1.85rem !important;
+  }
+  .hero-tag {
+    font-size: 0.75rem !important;
+  }
+  .hero {
+    padding-top: calc(var(--header-height) + var(--space-8)) !important;
+    padding-bottom: var(--space-12) !important;
+  }
+}
+
+/* 7. Home and Home 2 Hero Visualization Card Size Expansion */
+.home-hero-card, .home-2-hero-card {
+  width: 100% !important;
+  max-width: 520px !important;
+  min-height: 420px !important;
+  padding: var(--space-8) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  box-sizing: border-box !important;
+}
+
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1400px !important;
+  }
+  html {
+    font-size: 17.5px !important;
+  }
+  .home-hero-card, .home-2-hero-card {
+    max-width: 620px !important;
+    min-height: 480px !important;
+    padding: var(--space-10) !important;
+  }
+}
+
+
+/* 8. Footer Tablet 2x2 Grid Layout around 768px (600px to 991px) */
+@media (min-width: 600px) and (max-width: 991px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: var(--space-8) !important;
+  }
+}
+
+/* 9. Responsive Dual-Column Media Query Support */
+.responsive-grid-2 {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: var(--space-8) !important;
+}
+
+.responsive-grid-12-10 {
+  display: grid !important;
+  grid-template-columns: 1.2fr 1fr !important;
+  gap: 0 !important;
+}
+
+@media (max-width: 991px) {
+  .responsive-grid-2, .responsive-grid-12-10 {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-6) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .responsive-grid-2 img, .responsive-grid-12-10 img {
+    height: 200px !important;
+  }
+}
+
+/* 10. Query Optimizer Playground Sizing & Scrollbar Optimization */
+.query-playground-card {
+  width: 100% !important;
+}
+
+@media (min-width: 1440px) {
+  .query-playground-card pre {
+    overflow-x: visible !important;
+    white-space: pre-wrap !important;
+  }
+}
+
+/* 11. Timeline Responsiveness (Optimization Journey & History) */
+.timeline-row {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100% !important;
+  position: relative !important;
+  z-index: 2 !important;
+  flex-direction: row !important;
+  gap: 20px !important;
+}
+
+.timeline-card {
+  width: 45% !important;
+}
+
+.timeline-empty {
+  width: 45% !important;
+  display: block !important;
+}
+
+.timeline-line {
+  position: absolute !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  left: 50% !important;
+  width: 2px !important;
+  background: var(--border-color) !important;
+  transform: translateX(-50%) !important;
+  z-index: 1 !important;
+}
+
+@media (max-width: 768px) {
+  .timeline-line {
+    display: none !important;
+  }
+  .timeline-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: var(--space-6) !important;
+  }
+  .timeline-card {
+    width: 100% !important;
+  }
+  .timeline-empty {
+    display: none !important;
+  }
+}
+
+/* 12. Consultant Card Grid Layout (768px, 1024px, 1440px) */
+.consultant-card {
+  width: 100% !important;
+  padding: var(--space-8) !important;
+  display: grid !important;
+  grid-template-columns: 1.5fr 1fr !important;
+  align-items: center !important;
+  gap: var(--space-8) !important;
+}
+
+.consultant-card-content {
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  max-width: fit-content !important;
+  margin: 0 auto !important;
+}
+
+.consultant-card-image-wrap {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.consultant-card img {
+  width: 220px !important;
+  height: 220px !important;
+  border-radius: var(--border-radius-lg) !important;
+  object-fit: cover !important;
+  border: 2px solid var(--primary) !important;
+  box-shadow: var(--shadow-glow) !important;
+}
+
+@media (max-width: 767px) {
+  .consultant-card {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-6) !important;
+    text-align: center !important;
+  }
+  .consultant-card-content {
+    align-items: center !important;
+    text-align: center !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+

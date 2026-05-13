@@ -51,7 +51,7 @@
   </header>
 
   <!-- SECTION 1: HERO / INTRODUCTION -->
-  <section class="hero">
+  <section class="hero hero-center-layout">
     <div class="container hero-grid">
       <div class="hero-content">
         <div class="hero-tag">👤 THE FACE BEHIND THE QUERIES</div>
@@ -62,21 +62,21 @@
           <a href="services.html" class="btn btn-secondary">My Services</a>
         </div>
       </div>
-      <div class="hero-visual">
-        <img src="../assets/images/database_server_cluster.png" alt="Database Specialist Dashboard" style="width: 100%; max-width: 440px; height: 300px; object-fit: cover; border-radius: var(--border-radius-lg); border: 1px solid var(--border-color); display: block;">
-      </div>
+      
     </div>
   </section>
 
   <!-- SEPARATED HERO CARD SECTION -->
   <section class="section" style="padding: var(--space-4) 0 var(--space-10) 0;">
     <div class="container">
-      <div class="card-glass" style="max-width: 680px; margin: 0 auto; padding: var(--space-8); display: flex; align-items: center; gap: var(--space-6); text-align: left; flex-wrap: wrap;">
-        <div style="font-size: 4rem;">👨‍💻</div>
-        <div style="flex: 1; min-width: 250px;">
-          <h3 style="margin-bottom: 5px;">Alex Chen</h3>
-          <span style="color: var(--primary); font-weight: 600; font-size: 0.9rem; display: block; margin-bottom: 12px;">Principal Database Consultant</span>
-          <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">"My philosophy is simple: write cleaner queries and create smarter schemas instead of throwing expensive cloud hardware at poorly optimized systems."</p>
+      <div class="consultant-card card-glass">
+        <div class="consultant-card-content">
+          <h3 style="margin-bottom: 5px; font-size: 2rem;">Alex Chen</h3>
+          <span style="color: var(--primary); font-weight: 600; font-size: 1rem; display: block; margin-bottom: 15px;">Principal Database Consultant</span>
+          <p style="font-size: 1.05rem; color: var(--text-muted); line-height: 1.7; margin: 0;">"My philosophy is simple: write cleaner queries and create smarter schemas instead of throwing expensive cloud hardware at poorly optimized systems. Together, we maximize performance while slashing overhead."</p>
+        </div>
+        <div class="consultant-card-image-wrap">
+          <img src="https://media.istockphoto.com/id/1949501832/photo/handsome-hispanic-senior-business-man-with-crossed-arms-smiling-at-camera-indian-or-latin.jpg?s=612x612&w=0&k=20&c=LtlsYrQxUyX7oRmYS37PnZeaV2JmoPX9hWYPOfojCgw=" alt="Alex Chen, Principal Database Consultant">
         </div>
       </div>
     </div>
@@ -89,27 +89,36 @@
         <h2 class="section-title">Verified DBA Expertise</h2>
         <p class="section-subtitle">Rigorous professional certifications and credentials guaranteeing world-class service.</p>
       </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-8);">
-        <div class="card-glass">
-          <div style="font-size: 2.5rem; margin-bottom: 15px;">🏆</div>
-          <h3 style="margin-bottom: 10px;">Oracle Certified Professional</h3>
-          <p style="font-size: 0.9rem; color: var(--text-muted);">Official recognition as a certified MySQL Database Administrator, confirming deep theoretical and practical capability.</p>
+      <div class="card-grid">
+        <div class="card-glass" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; text-align: center;">
+          <img src="https://p.urbanpro.com/tv-prod/topic/mobileSeoImgPhoto/1511-large.jpg" alt="Oracle Certified Professional" style="width: 100%; height: 160px; object-fit: cover; display: block;">
+          <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <div style="font-size: 2rem; margin-bottom: 5px;">🏆</div>
+            <h3 style="margin-bottom: 10px;">Oracle Certified Professional</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">Official recognition as a certified MySQL Database Administrator, confirming deep theoretical and practical capability.</p>
+          </div>
         </div>
-        <div class="card-glass">
-          <div style="font-size: 2.5rem; margin-bottom: 15px;">☁️</div>
-          <h3 style="margin-bottom: 10px;">AWS Solutions Architect</h3>
-          <p style="font-size: 0.9rem; color: var(--text-muted);">Expertise mapping local database clusters into highly-scalable, cost-efficient Amazon RDS and Aurora cloud architectures.</p>
+        <div class="card-glass" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; text-align: center;">
+          <img src="https://media.geeksforgeeks.org/img-practice/prod/courses/651/Mobile/Content/Soln_1720780290.png" alt="AWS Solutions Architect" style="width: 100%; height: 160px; object-fit: cover; display: block;">
+          <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <div style="font-size: 2rem; margin-bottom: 5px;">☁️</div>
+            <h3 style="margin-bottom: 10px;">AWS Solutions Architect</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">Expertise mapping local database clusters into highly-scalable, cost-efficient Amazon RDS and Aurora cloud architectures.</p>
+          </div>
         </div>
-        <div class="card-glass">
-          <div style="font-size: 2.5rem; margin-bottom: 15px;">⚙️</div>
-          <h3 style="margin-bottom: 10px;">12+ Years Experience</h3>
-          <p style="font-size: 0.9rem; color: var(--text-muted);">Dozens of successful production deployments optimized, from early-stage MVPs to high-throughput financial institutions.</p>
+        <div class="card-glass" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; text-align: center;">
+          <img src="https://static.vecteezy.com/system/resources/previews/023/420/954/non_2x/12-years-experience-seal-vector.jpg" alt="12+ Years Experience" style="width: 100%; height: 160px; object-fit: cover; display: block;">
+          <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <div style="font-size: 2rem; margin-bottom: 5px;">⚙️</div>
+            <h3 style="margin-bottom: 10px;">12+ Years Experience</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">Dozens of successful production deployments optimized, from early-stage MVPs to high-throughput financial institutions.</p>
+          </div>
         </div>
       </div>
 
       <!-- Image visual in Skills section -->
       <div style="margin-top: var(--space-10); width: 100%; max-width: 900px; margin-left: auto; margin-right: auto; overflow: hidden; border-radius: var(--border-radius-lg); border: 1px solid var(--border-color);">
-        <img src="../assets/images/mysql_performance_chart.png" alt="Optimization Latency Drop Chart" style="width: 100%; height: 260px; object-fit: cover; display: block;">
+        <img src="https://editor.collegesathi.com/wp-content/uploads/2026/05/dba-senior-leadership-promotiondirector-vp-india-1024x572.webp" alt="Optimization Latency Drop Chart" style="width: 100%; height: 260px; object-fit: cover; display: block;">
       </div>
     </div>
   </section>
@@ -121,24 +130,24 @@
         <h2 class="section-title">Optimization Journey & History</h2>
         <p class="section-subtitle">Selected major database tuning projects and the tangible values delivered.</p>
       </div>
-      <div style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: var(--space-8); position: relative;">
+      <div style="width: 100%; display: flex; flex-direction: column; gap: var(--space-8); position: relative;">
         
-        <div style="position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; background: var(--border-color); transform: translateX(-50%); z-index: 1;"></div>
+        <div class="timeline-line"></div>
 
         <!-- Timeline item 1 -->
-        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; position: relative; z-index: 2; flex-wrap: wrap; gap: 20px;">
-          <div class="card-glass" style="width: 45%; text-align: left; align-items: flex-start; padding: 20px;">
+        <div class="timeline-row">
+          <div class="card-glass timeline-card" style="text-align: center; display: flex; flex-direction: column; align-items: center; padding: 20px;">
             <div style="font-family:'Outfit'; font-weight:800; color:var(--primary); font-size: 1.5rem; margin-bottom: 5px;">2025</div>
             <h4>E-Commerce Scale Optimization</h4>
             <p style="font-size: 0.85rem; color:var(--text-muted); margin-top: 10px;">Optimized checkout query times during Black Friday peak traffic, reducing database server response times from 12s down to 0.05s.</p>
           </div>
-          <div style="width: 45%;"></div>
+          <div class="timeline-empty"></div>
         </div>
 
         <!-- Timeline item 2 -->
-        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; position: relative; z-index: 2; flex-wrap: wrap; gap: 20px;">
-          <div style="width: 45%;"></div>
-          <div class="card-glass" style="width: 45%; text-align: left; align-items: flex-start; padding: 20px;">
+        <div class="timeline-row">
+          <div class="timeline-empty"></div>
+          <div class="card-glass timeline-card" style="text-align: center; display: flex; flex-direction: column; align-items: center; padding: 20px;">
             <div style="font-family:'Outfit'; font-weight:800; color:var(--secondary); font-size: 1.5rem; margin-bottom: 5px;">2023</div>
             <h4>SaaS Multi-Tenant Partitioning</h4>
             <p style="font-size: 0.85rem; color:var(--text-muted); margin-top: 10px;">Structured database table partitioning schemes for a B2B SaaS platform handling 100M+ monthly report views, restoring fast index responses.</p>
@@ -146,13 +155,13 @@
         </div>
 
         <!-- Timeline item 3 -->
-        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; position: relative; z-index: 2; flex-wrap: wrap; gap: 20px;">
-          <div class="card-glass" style="width: 45%; text-align: left; align-items: flex-start; padding: 20px;">
+        <div class="timeline-row">
+          <div class="card-glass timeline-card" style="text-align: center; display: flex; flex-direction: column; align-items: center; padding: 20px;">
             <div style="font-family:'Outfit'; font-weight:800; color:var(--accent); font-size: 1.5rem; margin-bottom: 5px;">2021</div>
             <h4>Cloud RDS Cost Minimization</h4>
             <p style="font-size: 0.85rem; color:var(--text-muted); margin-top: 10px;">Redesigned sub-optimal database schemas and indexes, leading to 60% AWS hosting bill savings via downgrading oversized RDS instances.</p>
           </div>
-          <div style="width: 45%;"></div>
+          <div class="timeline-empty"></div>
         </div>
 
       </div>

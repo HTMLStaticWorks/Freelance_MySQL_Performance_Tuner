@@ -51,7 +51,7 @@
   </header>
 
   <!-- SECTION 1: HERO (HOME 2 STYLE) -->
-  <section class="hero" style="background: radial-gradient(circle at top right, rgba(0, 245, 212, 0.05), transparent 50%);">
+  <section class="hero home-hero" style="background: radial-gradient(circle at top right, rgba(0, 245, 212, 0.05), transparent 50%);">
     <div class="container hero-grid">
       <div class="hero-content">
         <div class="hero-tag">📈 100% RELIABLE DATABASE OPERATIONS</div>
@@ -63,11 +63,34 @@
         </div>
       </div>
       <div class="hero-visual">
-        <div class="card-glass" style="width: 100%; max-width: 440px; text-align: center; padding: var(--space-6);">
-          <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 5px;">DB CPU UTILIZATION</div>
-          <div style="font-size: 3rem; font-weight: 800; color: var(--accent); margin-bottom: 10px;" id="hero2-cpu-val">96.4%</div>
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px;">High database workload throttling your system.</p>
+        <div class="card-glass home-2-hero-card" style="text-align: center;">
+          <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 10px;">DB CPU UTILIZATION</div>
+          <div style="font-size: 3.5rem; font-weight: 800; color: var(--accent); margin-bottom: 15px;" id="hero2-cpu-val">96.4%</div>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 15px;">High database workload throttling your system.</p>
           <button class="btn btn-primary" style="width: 100%;" onclick="optimizeHero2CPU()">⚡ Apply Live Config Patch</button>
+          
+          <!-- MySQL live status console -->
+          <div style="width: 100%; text-align: left; background: rgba(0, 0, 0, 0.2); border: 1px solid var(--border-color); border-radius: 8px; padding: 12px; margin-top: 15px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; line-height: 1.5; color: var(--primary);">
+            <div style="color: var(--text-muted); border-bottom: 1px solid var(--border-color); padding-bottom: 6px; margin-bottom: 8px; display: flex; justify-content: space-between;">
+              <span>⚡ ACTIVE QUERY LOCK MONITOR</span>
+              <span style="color: var(--accent); font-weight: 700;">3 BLOCKED</span>
+            </div>
+            <div>[08:42:01] <span style="color: var(--accent);">LOCK:</span> SELECT * FROM orders WHERE status='pending';</div>
+            <div>[08:42:02] <span style="color: var(--accent);">WARN:</span> Full-table scan scanning 12.4M rows.</div>
+            <div>[08:42:03] <span style="color: var(--text-muted);">INFO:</span> Thread ID 481 throttling CPU capacity.</div>
+          </div>
+
+          <!-- Extra metrics indicators inside the card -->
+          <div style="display: flex; gap: var(--space-4); width: 100%; margin-top: 15px; justify-content: space-between; flex-wrap: wrap;">
+            <div class="card-glass" style="padding: 10px; flex: 1; text-align: center; border-color: rgba(245, 158, 11, 0.2); min-width: 120px;">
+              <div style="font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px;">IO Wait Queue</div>
+              <div style="font-size: 1.2rem; font-weight: 800; color: var(--accent); margin-top: 2px;">18.4ms</div>
+            </div>
+            <div class="card-glass" style="padding: 10px; flex: 1; text-align: center; border-color: rgba(0, 245, 212, 0.2); min-width: 120px;">
+              <div style="font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px;">Query Buffer</div>
+              <div style="font-size: 1.2rem; font-weight: 800; color: var(--secondary); margin-top: 2px;">92% Hit</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -80,25 +103,41 @@
         <h2 class="section-title">Visual Schema Redesign</h2>
         <p class="section-subtitle">See how moving from nested subqueries to highly-efficient denormalized index lookup patterns minimizes disk IO overhead.</p>
       </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-8); max-width: 900px; margin: 0 auto;">
-        <div class="card-glass">
-          <div style="font-size: 1.5rem; margin-bottom: 10px; color: var(--accent);">⚠️ Redundant Subquery Pattern</div>
-          <pre style="text-align: left; background: rgba(245, 158, 11, 0.05); padding: 12px; border-radius: 8px; font-size: 0.8rem; width:100%; overflow-x: auto;"><code style="color: var(--accent);">SELECT * FROM products 
+      <div class="card-grid">
+        <div class="card-glass" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; text-align: center;">
+          <img src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=500&q=80" alt="Redundant Subquery Pattern" style="width: 100%; height: 160px; object-fit: cover; display: block;">
+          <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <div style="font-size: 1.3rem; margin-bottom: 10px; color: var(--accent); font-weight: 700;">⚠️ Redundant Subquery</div>
+            <pre style="text-align: left; background: rgba(245, 158, 11, 0.05); padding: 12px; border-radius: 8px; font-size: 0.8rem; width:100%; overflow-x: auto; margin-bottom: 10px;"><code style="color: var(--accent);">SELECT * FROM products 
 WHERE id IN (
   SELECT product_id 
   FROM order_items 
   WHERE qty > 10
 );</code></pre>
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 15px;">Triggers dependent nested loops on table scanning. Latency: <strong>3.84 seconds</strong></p>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Triggers dependent nested loops on table scanning. Latency: <strong>3.84s</strong></p>
+          </div>
         </div>
-        <div class="card-glass" style="border-color: var(--secondary);">
-          <div style="font-size: 1.5rem; margin-bottom: 10px; color: var(--secondary);">✓ Optimized INNER JOIN Pattern</div>
-          <pre style="text-align: left; background: rgba(0, 245, 212, 0.05); padding: 12px; border-radius: 8px; font-size: 0.8rem; width:100%; overflow-x: auto;"><code style="color: var(--primary);">SELECT DISTINCT p.* 
+        <div class="card-glass" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; text-align: center; border-color: var(--secondary);">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=500&q=80" alt="Optimized INNER JOIN Pattern" style="width: 100%; height: 160px; object-fit: cover; display: block;">
+          <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <div style="font-size: 1.3rem; margin-bottom: 10px; color: var(--secondary); font-weight: 700;">✓ Optimized INNER JOIN</div>
+            <pre style="text-align: left; background: rgba(0, 245, 212, 0.05); padding: 12px; border-radius: 8px; font-size: 0.8rem; width:100%; overflow-x: auto; margin-bottom: 10px;"><code style="color: var(--primary);">SELECT DISTINCT p.* 
 FROM products p 
 INNER JOIN order_items o 
   ON p.id = o.product_id 
 WHERE o.qty > 10;</code></pre>
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 15px;">Leverages primary index hashes instantly. Latency: <strong>0.002 seconds</strong></p>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Leverages primary index hashes instantly. Latency: <strong>0.002s</strong></p>
+          </div>
+        </div>
+        <div class="card-glass" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; text-align: center; border-color: var(--primary);">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=500&q=80" alt="Summary Table Pattern" style="width: 100%; height: 160px; object-fit: cover; display: block;">
+          <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <div style="font-size: 1.3rem; margin-bottom: 10px; color: var(--primary); font-weight: 700;">⚡ Summary Table Pattern</div>
+            <pre style="text-align: left; background: rgba(37, 99, 235, 0.05); padding: 12px; border-radius: 8px; font-size: 0.8rem; width:100%; overflow-x: auto; margin-bottom: 10px;"><code style="color: var(--secondary);">SELECT sales_count, revenue 
+FROM monthly_sales_summary 
+WHERE month = '2026-05';</code></pre>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Eliminates millions of runtime aggregate functions. Latency: <strong>0.0001s</strong></p>
+          </div>
         </div>
       </div>
     </div>
@@ -111,7 +150,7 @@ WHERE o.qty > 10;</code></pre>
         <h2 class="section-title">Standard Default vs Tuned Server Limits</h2>
         <p class="section-subtitle">How MySQL configurations out-of-the-box strangle your underlying server hardware potential.</p>
       </div>
-      <div style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: var(--space-4);">
+      <div style="width: 100%; display: flex; flex-direction: column; gap: var(--space-4);">
         <div class="card-glass" style="display: flex; justify-content: space-between; align-items: center; width: 100%; text-align: left; flex-direction: row; flex-wrap: wrap; gap: 15px;">
           <div>
             <h4>InnoDB Buffer Pool Size</h4>
@@ -145,9 +184,9 @@ WHERE o.qty > 10;</code></pre>
       </div>
 
       <!-- Section 3 split visual column -->
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--space-8); align-items: center; margin-top: var(--space-12); max-width: 800px; margin-left: auto; margin-right: auto;">
-        <img src="../assets/images/mysql_performance_chart.png" alt="MySQL Performance Chart" style="width: 100%; height: 260px; object-fit: cover; border-radius: var(--border-radius-lg); border: 1px solid var(--border-color); display: block;">
-        <div style="text-align: left;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--space-8); align-items: center; margin-top: var(--space-12); width: 100%;">
+        <img src="https://logit.io/uploads/general/Jw386RSJGGVIIWKLOdDGG_Set_Top_Box.png" alt="MySQL Performance Chart" style="width: 100%; height: 260px; object-fit: cover; border-radius: var(--border-radius-lg); border: 1px solid var(--border-color); display: block;">
+        <div style="text-align: center; display: flex; flex-direction: column; align-items: center; padding: var(--space-4);">
           <span style="color: var(--primary); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px;">REAL-TIME LATENCY PROFILING</span>
           <h3 style="margin-top: 10px; margin-bottom: 15px; font-size: 1.7rem;">Visualize Peak Traffic Loads</h3>
           <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">Our tuned configurations are custom-crafted based on your actual database profiles, shifting workloads from disk swapping directly into memory speed operations.</p>
@@ -160,29 +199,57 @@ WHERE o.qty > 10;</code></pre>
   <section class="section" style="background: rgba(var(--primary-rgb), 0.02); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">My 4-Step Database Optimization Process</h2>
+        <h2 class="section-title">My 6-Step Database Optimization Process</h2>
         <p class="section-subtitle">Rigorous database fine-tuning designed to secure speed and data consistency.</p>
       </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-6);">
-        <div class="card-glass">
-          <div style="font-size: 2rem; color: var(--primary); font-weight: 800; margin-bottom: 10px;">01</div>
-          <h4 style="margin-bottom: 10px;">Deep Diagnostics</h4>
-          <p style="font-size: 0.85rem; color: var(--text-muted);">Connecting monitoring agents to track execution, buffer hits, lock contentions, and process lists.</p>
+      <div class="card-grid" style="gap: var(--space-6);">
+        <div class="card-glass" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; text-align: center;">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500&q=80" alt="Deep Diagnostics" style="width: 100%; height: 150px; object-fit: cover; display: block;">
+          <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <div style="font-size: 1.8rem; color: var(--primary); font-weight: 800; margin-bottom: 5px;">01</div>
+            <h4 style="margin-bottom: 8px;">Deep Diagnostics</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Connecting monitoring agents to track execution, buffer hits, lock contentions, and process lists.</p>
+          </div>
         </div>
-        <div class="card-glass">
-          <div style="font-size: 2rem; color: var(--primary); font-weight: 800; margin-bottom: 10px;">02</div>
-          <h4 style="margin-bottom: 10px;">Index Strategy</h4>
-          <p style="font-size: 0.85rem; color: var(--text-muted);">Constructing specific indices to target the highest workload impacts identified in slow query logs.</p>
+        <div class="card-glass" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; text-align: center;">
+          <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=500&q=80" alt="Index Strategy" style="width: 100%; height: 150px; object-fit: cover; display: block;">
+          <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <div style="font-size: 1.8rem; color: var(--primary); font-weight: 800; margin-bottom: 5px;">02</div>
+            <h4 style="margin-bottom: 8px;">Index Strategy</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Constructing specific indices to target the highest workload impacts identified in slow query logs.</p>
+          </div>
         </div>
-        <div class="card-glass">
-          <div style="font-size: 2rem; color: var(--primary); font-weight: 800; margin-bottom: 10px;">03</div>
-          <h4 style="margin-bottom: 10px;">Query Refactoring</h4>
-          <p style="font-size: 0.85rem; color: var(--text-muted);">Re-writing long nested sub-queries and table locks to remove deadlocks and optimize join sequences.</p>
+        <div class="card-glass" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; text-align: center;">
+          <img src="https://devblogs.microsoft.com/azure-sql/wp-content/uploads/sites/56/2025/08/query-search.png" alt="Query Refactoring" style="width: 100%; height: 150px; object-fit: cover; display: block;">
+          <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <div style="font-size: 1.8rem; color: var(--primary); font-weight: 800; margin-bottom: 5px;">03</div>
+            <h4 style="margin-bottom: 8px;">Query Refactoring</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Re-writing long nested sub-queries and table locks to remove deadlocks and optimize join sequences.</p>
+          </div>
         </div>
-        <div class="card-glass">
-          <div style="font-size: 2rem; color: var(--primary); font-weight: 800; margin-bottom: 10px;">04</div>
-          <h4 style="margin-bottom: 10px;">Continuous Auditing</h4>
-          <p style="font-size: 0.85rem; color: var(--text-muted);">Re-testing performance curves over high peak-traffic windows to secure stable operations.</p>
+        <div class="card-glass" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; text-align: center;">
+          <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=500&q=80" alt="Continuous Auditing" style="width: 100%; height: 150px; object-fit: cover; display: block;">
+          <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <div style="font-size: 1.8rem; color: var(--primary); font-weight: 800; margin-bottom: 5px;">04</div>
+            <h4 style="margin-bottom: 8px;">Continuous Auditing</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Re-testing performance curves over high peak-traffic windows to secure stable operations.</p>
+          </div>
+        </div>
+        <div class="card-glass" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; text-align: center;">
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=500&q=80" alt="Configuration Tuning" style="width: 100%; height: 150px; object-fit: cover; display: block;">
+          <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <div style="font-size: 1.8rem; color: var(--primary); font-weight: 800; margin-bottom: 5px;">05</div>
+            <h4 style="margin-bottom: 8px;">Configuration Tuning</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Tuning server settings, caching structures, thread buffers, and query cache pools to perfectly fit instance hardware.</p>
+          </div>
+        </div>
+        <div class="card-glass" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; text-align: center;">
+          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=500&q=80" alt="Final Verification" style="width: 100%; height: 150px; object-fit: cover; display: block;">
+          <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <div style="font-size: 1.8rem; color: var(--primary); font-weight: 800; margin-bottom: 5px;">06</div>
+            <h4 style="margin-bottom: 8px;">Final Verification</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Performing high-concurrency load testing, benchmark analysis, and verifying CPU/memory usage drop before completion.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -195,7 +262,7 @@ WHERE o.qty > 10;</code></pre>
         <h2 class="section-title">Supported Database Architectures</h2>
         <p class="section-subtitle">No matter where you are hosting your database tables, we provide expert optimization.</p>
       </div>
-      <div style="display: flex; justify-content: center; align-items: center; gap: var(--space-8); flex-wrap: wrap;">
+      <div class="card-grid">
         <div class="card-glass" style="width: 140px; padding: 15px;">
           <div style="font-size: 1.8rem; margin-bottom: 5px;">🐬</div>
           <strong style="font-size: 0.85rem;">MySQL</strong>
@@ -219,9 +286,7 @@ WHERE o.qty > 10;</code></pre>
       </div>
 
       <!-- Section 5 image element -->
-      <div style="margin-top: var(--space-10); width: 100%; max-width: 900px; margin-left: auto; margin-right: auto; overflow: hidden; border-radius: var(--border-radius-lg); border: 1px solid var(--border-color);">
-        <img src="../assets/images/database_server_cluster.png" alt="Database Server Racks" style="width: 100%; height: 260px; object-fit: cover; display: block;">
-      </div>
+      
     </div>
   </section>
 
@@ -232,15 +297,15 @@ WHERE o.qty > 10;</code></pre>
         <h2 class="section-title">Straightforward Flat-Rate Pricing</h2>
         <p class="section-subtitle">No confusing hourly billings. Choose a database tuning package matching your traffic volume.</p>
       </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-8); max-width: 1000px; margin: 0 auto;">
+      <div class="card-grid">
         <div class="card-glass">
           <h3 style="margin-bottom: 10px;">One-Off Tuneup</h3>
           <div style="font-size: 2.5rem; font-weight:800; color:var(--primary); margin-bottom: 15px;">$1,499</div>
           <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">Perfect for debugging an immediate peak database deadlock issue.</p>
           <ul style="list-style: none; display: flex; flex-direction: column; gap: var(--space-3); font-size: 0.9rem; margin-bottom: 25px; text-align: left; width: 100%;">
             <li>✓ Slow Query Log Analysis</li>
-            <li>✓ Key Index Creation (Up to 10 queries)</li>
-            <li>✓ Configuration Auditing & Advice</li>
+            <li>✓ Key Index Creation (Up to 10)</li>
+            <li>✓ Configuration Auditing </li>
             <li>✓ 15-day post-support followups</li>
           </ul>
           <a href="contact.html" class="btn btn-secondary" style="width: 100%;">Get Started</a>
@@ -251,10 +316,10 @@ WHERE o.qty > 10;</code></pre>
           <div style="font-size: 2.5rem; font-weight:800; color:var(--primary); margin-bottom: 15px;">$3,499</div>
           <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">Ideal for growing platforms preparing for major scaling jumps.</p>
           <ul style="list-style: none; display: flex; flex-direction: column; gap: var(--space-3); font-size: 0.9rem; margin-bottom: 25px; text-align: left; width: 100%;">
-            <li>✓ Complete Schema Normalization</li>
-            <li>✓ Query Re-writing (Unlimited)</li>
-            <li>✓ Full Server Optimization Config Patch</li>
-            <li>✓ 30-day monitoring & database support</li>
+            <li>✓ Complete Schema Normale</li>
+            <li>✓ Query Re-writing</li>
+            <li>✓ Full Server Optimization Config</li>
+            <li>✓ 30-day monitoring & database</li>
           </ul>
           <a href="contact.html" class="btn btn-primary" style="width: 100%;">Get Started</a>
         </div>
@@ -263,10 +328,10 @@ WHERE o.qty > 10;</code></pre>
           <div style="font-size: 2.5rem; font-weight:800; color:var(--primary); margin-bottom: 15px;">Custom</div>
           <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">Continuous consulting for tech organizations requiring robust uptime SLA guarantees.</p>
           <ul style="list-style: none; display: flex; flex-direction: column; gap: var(--space-3); font-size: 0.9rem; margin-bottom: 25px; text-align: left; width: 100%;">
-            <li>✓ 24/7/365 Emergency Database DBA</li>
-            <li>✓ Weekly Query & Schema Tuning</li>
-            <li>✓ AWS Migration & Architecture Design</li>
-            <li>✓ Slack & Phone Dedicated Support</li>
+            <li>✓ 24/7/365 Emergency Database</li>
+            <li>✓ Weekly Query & Schema</li>
+            <li>✓ AWS Migration & Architecture</li>
+            <li>✓ Slack & Phone  Support</li>
           </ul>
           <a href="contact.html" class="btn btn-secondary" style="width: 100%;">Contact Sales</a>
         </div>
