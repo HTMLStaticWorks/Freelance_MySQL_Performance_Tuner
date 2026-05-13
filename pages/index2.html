@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/dark-mode.css">
   <link rel="stylesheet" href="../assets/css/rtl.css">
+  <link rel="icon" type="image/png" href="../assets/images/favicon.png">
 </head>
 <body>
 
@@ -105,13 +106,13 @@
       </div>
       <div class="card-grid">
         <div class="card-glass" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; text-align: center;">
-          <img src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=500&q=80" alt="Redundant Subquery Pattern" style="width: 100%; height: 160px; object-fit: cover; display: block;">
+          <img src="https://cdn.slidesharecdn.com/ss_thumbnails/nestedsubquery-220420053219-thumbnail.jpg?width=640&height=640&fit=bounds" alt="Redundant Subquery Pattern" style="width: 100%; height: 160px; object-fit: cover; display: block;">
           <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-            <div style="font-size: 1.3rem; margin-bottom: 10px; color: var(--accent); font-weight: 700;">⚠️ Redundant Subquery</div>
+            <div style="font-size: 1.3rem; margin-bottom: 10px; color: var(--accent); font-weight: 700;">Nested Subquery</div>
             <pre style="text-align: left; background: rgba(245, 158, 11, 0.05); padding: 12px; border-radius: 8px; font-size: 0.8rem; width:100%; overflow-x: auto; margin-bottom: 10px;"><code style="color: var(--accent);">SELECT * FROM products 
 WHERE id IN (
-  SELECT product_id 
-  FROM order_items 
+  SELECT id 
+  FROM items 
   WHERE qty > 10
 );</code></pre>
             <p style="font-size: 0.85rem; color: var(--text-muted);">Triggers dependent nested loops on table scanning. Latency: <strong>3.84s</strong></p>
@@ -120,7 +121,7 @@ WHERE id IN (
         <div class="card-glass" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; text-align: center; border-color: var(--secondary);">
           <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=500&q=80" alt="Optimized INNER JOIN Pattern" style="width: 100%; height: 160px; object-fit: cover; display: block;">
           <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-            <div style="font-size: 1.3rem; margin-bottom: 10px; color: var(--secondary); font-weight: 700;">✓ Optimized INNER JOIN</div>
+            <div style="font-size: 1.3rem; margin-bottom: 10px; color: var(--secondary); font-weight: 700;">Optimized INNER JOIN</div>
             <pre style="text-align: left; background: rgba(0, 245, 212, 0.05); padding: 12px; border-radius: 8px; font-size: 0.8rem; width:100%; overflow-x: auto; margin-bottom: 10px;"><code style="color: var(--primary);">SELECT DISTINCT p.* 
 FROM products p 
 INNER JOIN order_items o 
@@ -132,11 +133,13 @@ WHERE o.qty > 10;</code></pre>
         <div class="card-glass" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; text-align: center; border-color: var(--primary);">
           <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=500&q=80" alt="Summary Table Pattern" style="width: 100%; height: 160px; object-fit: cover; display: block;">
           <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-            <div style="font-size: 1.3rem; margin-bottom: 10px; color: var(--primary); font-weight: 700;">⚡ Summary Table Pattern</div>
+            <div style="font-size: 1.3rem; margin-bottom: 10px; color: var(--primary); font-weight: 700;"> Summary Table</div>
             <pre style="text-align: left; background: rgba(37, 99, 235, 0.05); padding: 12px; border-radius: 8px; font-size: 0.8rem; width:100%; overflow-x: auto; margin-bottom: 10px;"><code style="color: var(--secondary);">SELECT sales_count, revenue 
 FROM monthly_sales_summary 
-WHERE month = '2026-05';</code></pre>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Eliminates millions of runtime aggregate functions. Latency: <strong>0.0001s</strong></p>
+WHERE month 
+
+= '2026-05';</code></pre>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Eliminates millions of runtime aggregate. Latency: <strong>0.0001s</strong></p>
           </div>
         </div>
       </div>
@@ -151,32 +154,32 @@ WHERE month = '2026-05';</code></pre>
         <p class="section-subtitle">How MySQL configurations out-of-the-box strangle your underlying server hardware potential.</p>
       </div>
       <div style="width: 100%; display: flex; flex-direction: column; gap: var(--space-4);">
-        <div class="card-glass" style="display: flex; justify-content: space-between; align-items: center; width: 100%; text-align: left; flex-direction: row; flex-wrap: wrap; gap: 15px;">
+        <div class="card-glass server-limit-card" style="display: flex; justify-content: space-between; align-items: center; width: 100%; text-align: left; flex-direction: row; flex-wrap: wrap; gap: 15px;">
           <div>
             <h4>InnoDB Buffer Pool Size</h4>
             <p style="font-size: 0.85rem; color: var(--text-muted);">Memory limit assigned to caching data tables and indexes.</p>
           </div>
-          <div style="text-align: right;">
+          <div style="text-align: right;" class="server-limit-val">
             <div style="color: var(--accent); font-weight:700;">Standard Default: 128MB</div>
             <div style="color: var(--secondary); font-weight:700;">Tuned Setting: 8.0GB (80% RAM)</div>
           </div>
         </div>
-        <div class="card-glass" style="display: flex; justify-content: space-between; align-items: center; width: 100%; text-align: left; flex-direction: row; flex-wrap: wrap; gap: 15px;">
+        <div class="card-glass server-limit-card" style="display: flex; justify-content: space-between; align-items: center; width: 100%; text-align: left; flex-direction: row; flex-wrap: wrap; gap: 15px;">
           <div>
             <h4>Max Connections Limits</h4>
             <p style="font-size: 0.85rem; color: var(--text-muted);">Max active connections allowable before dropping client requests.</p>
           </div>
-          <div style="text-align: right;">
+          <div style="text-align: right;" class="server-limit-val">
             <div style="color: var(--accent); font-weight:700;">Standard Default: 151</div>
             <div style="color: var(--secondary); font-weight:700;">Tuned Setting: 1,500 (Optimized Threads)</div>
           </div>
         </div>
-        <div class="card-glass" style="display: flex; justify-content: space-between; align-items: center; width: 100%; text-align: left; flex-direction: row; flex-wrap: wrap; gap: 15px;">
+        <div class="card-glass server-limit-card" style="display: flex; justify-content: space-between; align-items: center; width: 100%; text-align: left; flex-direction: row; flex-wrap: wrap; gap: 15px;">
           <div>
             <h4>Temp Table Memory Storage</h4>
             <p style="font-size: 0.85rem; color: var(--text-muted);">Allowed space in RAM before query sorting is flushed to slow disk storage.</p>
           </div>
-          <div style="text-align: right;">
+          <div style="text-align: right;" class="server-limit-val">
             <div style="color: var(--accent); font-weight:700;">Standard Default: 16MB</div>
             <div style="color: var(--secondary); font-weight:700;">Tuned Setting: 256MB (In-Memory Sorts)</div>
           </div>
@@ -381,9 +384,9 @@ WHERE month = '2026-05';</code></pre>
       <div>
         <h4 class="footer-column-title">Contact Info</h4>
         <div class="footer-contact-info">
-          <div class="footer-contact-item">📧 support@sqltuner.com</div>
+          <div class="footer-contact-item">📧 support@sql.com</div>
           <div class="footer-contact-item">📞 +1 (555) 238-9481</div>
-          <div class="footer-contact-item">📍 Remote Worldwide / US Eastern</div>
+          <div class="footer-contact-item">📍 USA / 5th street</div>
         </div>
       </div>
     </div>
@@ -395,6 +398,11 @@ WHERE month = '2026-05';</code></pre>
       </div>
     </div>
   </footer>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to Top">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
 
   <script src="../assets/js/main.js"></script>
   <script>

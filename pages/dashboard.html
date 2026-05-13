@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/dark-mode.css">
   <link rel="stylesheet" href="../assets/css/rtl.css">
+  <link rel="icon" type="image/png" href="../assets/images/favicon.png">
   <style>
     /* Adjustments to support fixed sticky header and scrollable dashboard content */
     body {
@@ -23,6 +24,7 @@
         <div class="logo-icon">DB</div>
         <span>SQLTuner</span>
       </a>
+      <button class="sidebar-close" id="sidebar-close" aria-label="Close Menu">&times;</button>
     </div>
     
     <ul class="sidebar-menu">
@@ -309,6 +311,11 @@
       }
     }
   </style>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to Top">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
 
   <script src="../assets/js/main.js"></script>
   <script src="../assets/js/dashboard.js"></script>

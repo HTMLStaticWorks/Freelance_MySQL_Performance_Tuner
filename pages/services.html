@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/dark-mode.css">
   <link rel="stylesheet" href="../assets/css/rtl.css">
+  <link rel="icon" type="image/png" href="../assets/images/favicon.png">
 </head>
 
 <body>
@@ -89,7 +90,7 @@
           <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
             <h3 style="margin-bottom: 12px;">Query Plan Analysis</h3>
             <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 15px;">Deep analysis of MySQL EXPLAIN syntax. We pinpoint bad join orders, full table scans, temporary sorting folders, and write efficient nested join replacements.</p>
-            <strong style="font-size: 0.85rem; color: var(--primary);">Includes: SQL rewrite files & EXPLAIN plans</strong>
+            <strong style="font-size: 0.85rem; color: var(--primary);">Includes: SQL rewrite files & plans</strong>
           </div>
         </div>
 
@@ -98,7 +99,7 @@
           <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
             <h3 style="margin-bottom: 12px;">Composite Indexing</h3>
             <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 15px;">Smart, covering composite keys engineered to eliminate file sorting operations entirely. We align indices to query parameters without bloating physical disk writes.</p>
-            <strong style="font-size: 0.85rem; color: var(--primary);">Includes: Custom indexing DDL patch script</strong>
+            <strong style="font-size: 0.85rem; color: var(--primary);">Includes: Custom DDL script</strong>
           </div>
         </div>
 
@@ -125,7 +126,7 @@
           <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
             <h3 style="margin-bottom: 12px;">Cloud Cost Scaling</h3>
             <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 15px;">Reducing AWS RDS/GCP Cloud SQL monthly spend by optimizing IOPS consumption, storage footprint, and right-sizing instance families based on actual load.</p>
-            <strong style="font-size: 0.85rem; color: var(--primary);">Includes: ROI & Cost Savings analysis</strong>
+            <strong style="font-size: 0.85rem; color: var(--primary);">Includes: ROI & Cost analysis</strong>
           </div>
         </div>
 
@@ -260,9 +261,9 @@
       <div>
         <h4 class="footer-column-title">Contact Info</h4>
         <div class="footer-contact-info">
-          <div class="footer-contact-item">📧 support@sqltuner.com</div>
+          <div class="footer-contact-item">📧 support@sql.com</div>
           <div class="footer-contact-item">📞 +1 (555) 238-9481</div>
-          <div class="footer-contact-item">📍 Remote Worldwide / US Eastern</div>
+          <div class="footer-contact-item">📍 USA / 5th street</div>
         </div>
       </div>
     </div>
@@ -274,6 +275,11 @@
       </div>
     </div>
   </footer>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to Top">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
 
   <script src="../assets/js/main.js"></script>
 </body>

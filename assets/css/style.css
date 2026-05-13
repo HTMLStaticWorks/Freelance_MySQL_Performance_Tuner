@@ -493,6 +493,29 @@ code, pre {
   justify-content: space-between;
   align-items: center;
   font-size: 0.85rem;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+@media (max-width: 480px) {
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 360px) {
+  .footer-bottom {
+    font-size: 0.75rem;
+    gap: var(--space-2);
+  }
+  .footer-bottom p {
+    white-space: nowrap;
+  }
+  .footer-bottom div {
+    gap: var(--space-2) !important;
+  }
 }
 
 /* --- HERO COMPONENT --- */
@@ -1250,6 +1273,20 @@ code, pre {
   gap: var(--space-8) !important;
 }
 
+/* 13. Server Limit Cards side-by-side fix for 768px */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .server-limit-card {
+    flex-wrap: nowrap !important;
+  }
+  .server-limit-card > div:first-child {
+    flex: 1 !important;
+  }
+  .server-limit-card .server-limit-val {
+    flex-shrink: 0 !important;
+    text-align: right !important;
+  }
+}
+
 .consultant-card-content {
   text-align: center !important;
   display: flex !important;
@@ -1289,10 +1326,65 @@ code, pre {
 
 
 
+/* 13. Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 45px;
+  height: 45px;
+  background: var(--primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-lg);
+  border: none;
+}
 
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
 
+.back-to-top:hover {
+  background: var(--secondary);
+  color: #000;
+  transform: translateY(-5px);
+}
 
+/* 14. Dashboard Sidebar Close Button */
+.sidebar-close {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-main);
+  cursor: pointer;
+}
 
+@media (max-width: 1023px) {
+  .sidebar-close {
+    display: block !important;
+  }
+  .dashboard-brand {
+    justify-content: space-between !important;
+  }
+}
+
+/* 15. Server Limits Alignment for 360px */
+@media (max-width: 360px) {
+  .server-limit-val {
+    text-align: left !important;
+  }
+}
 
 
 

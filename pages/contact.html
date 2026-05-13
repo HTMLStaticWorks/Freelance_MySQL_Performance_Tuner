@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/dark-mode.css">
   <link rel="stylesheet" href="../assets/css/rtl.css">
+  <link rel="icon" type="image/png" href="../assets/images/favicon.png">
   <style>
     /* Custom styles for contact page refinement */
     .contact-grid {
@@ -68,8 +69,14 @@
     }
 
     .contact-hero {
-      padding: var(--space-16) 0 var(--space-10) 0;
+      padding: calc(var(--header-height) + var(--space-24)) 0 var(--space-10) 0;
       background: radial-gradient(circle at top right, rgba(var(--primary-rgb), 0.05), transparent);
+      overflow: visible; /* Ensure no cropping */
+    }
+    .contact-hero .hero-title {
+      line-height: 1.4;
+      padding: 20px 0;
+      margin: 0;
     }
   </style>
 </head>
@@ -119,7 +126,7 @@
   <section class="contact-hero">
     <div class="container">
       <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-        <div class="hero-tag" style="margin: 0 auto var(--space-4) auto;">✉️ GET IN TOUCH</div>
+        <div class="hero-tag" style="margin: 0 auto var(--space-4) auto; width: fit-content; display: block;">✉️ GET IN TOUCH</div>
         <h1 class="hero-title" style="font-size: clamp(2.5rem, 5vw, 4rem);">Let's Scale Your <span>Performance</span></h1>
         <p class="hero-description" style="max-width: 600px; margin: 0 auto var(--space-8) auto;">Ready to eliminate bottlenecks? Reach out for a specialized MySQL audit or performance consultation.</p>
       </div>
@@ -177,7 +184,7 @@
           <div class="card-glass" style="padding: var(--space-6); text-align: center;">
             <p style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); margin-bottom: 15px; letter-spacing: 1px; text-transform: uppercase;">Direct Channels</p>
             <div style="display: flex; gap: 15px; justify-content: center;">
-              <a href="mailto:support@sqltuner.com" class="social-link" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: rgba(var(--primary-rgb), 0.1); border-radius: 50%; color: var(--primary);">
+              <a href="mailto:support@sql.com" class="social-link" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: rgba(var(--primary-rgb), 0.1); border-radius: 50%; color: var(--primary);">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
               </a>
               <a href="https://linkedin.com" class="social-link" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: rgba(var(--primary-rgb), 0.1); border-radius: 50%; color: var(--primary);">
@@ -350,9 +357,9 @@
       <div>
         <h4 class="footer-column-title">Contact Info</h4>
         <div class="footer-contact-info">
-          <div class="footer-contact-item">📧 support@sqltuner.com</div>
+          <div class="footer-contact-item">📧 support@sql.com</div>
           <div class="footer-contact-item">📞 +1 (555) 238-9481</div>
-          <div class="footer-contact-item">📍 Remote Worldwide / US Eastern</div>
+          <div class="footer-contact-item">📍 USA / 5th street</div>
         </div>
       </div>
     </div>
@@ -364,6 +371,11 @@
       </div>
     </div>
   </footer>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to Top">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
 
   <script src="../assets/js/main.js"></script>
 </body>

@@ -40,35 +40,23 @@
   left: auto;
 }
 
-/* Header system flips */
-[dir="rtl"] .header-container {
-  flex-direction: row-reverse;
-}
-
-[dir="rtl"] .logo-container {
-  flex-direction: row-reverse;
-}
-
-[dir="rtl"] .header-actions {
-  flex-direction: row-reverse;
+/* Header system flips - Removing row-reverse allows natural dir="rtl" to handle positions */
+[dir="rtl"] .header-container,
+[dir="rtl"] .logo-container,
+[dir="rtl"] .header-actions,
+[dir="rtl"] .dashboard-header,
+[dir="rtl"] .dashboard-title-area {
+  flex-direction: row; /* Ensure they use default row which respects dir="rtl" */
 }
 
 /* Dashboard Sidebar and Layout flips */
 [dir="rtl"] .dashboard-layout {
-  flex-direction: row-reverse;
+  flex-direction: row; /* Respects RTL naturally */
 }
 
 [dir="rtl"] .dashboard-sidebar {
   border-right: none;
   border-left: 1px solid var(--border-color);
-}
-
-[dir="rtl"] .dashboard-header {
-  flex-direction: row-reverse;
-}
-
-[dir="rtl"] .dashboard-title-area {
-  flex-direction: row-reverse;
 }
 
 /* Absolute offsets */
@@ -83,7 +71,36 @@
 }
 
 [dir="rtl"] .footer-bottom {
-  flex-direction: row-reverse;
+  flex-direction: row; /* Respects RTL naturally */
+}
+
+/* Inline Style Overrides (targeting elements with style="text-align: left") */
+[dir="rtl"] .query-playground-card,
+[dir="rtl"] .home-hero-card > div,
+[dir="rtl"] .case-study-list,
+[dir="rtl"] .dashboard-tab-content .card-glass,
+[dir="rtl"] .dashboard-tab-content table th,
+[dir="rtl"] .dashboard-tab-content table td,
+[dir="rtl"] .card-glass[style*="text-align: left"],
+[dir="rtl"] div[style*="text-align: left"],
+[dir="rtl"] ul[style*="text-align: left"] {
+  text-align: right !important;
+}
+
+[dir="rtl"] div[style*="text-align: right"] {
+  text-align: left !important;
+}
+
+[dir="rtl"] .hero-actions,
+[dir="rtl"] .two-buttons {
+  flex-direction: row; /* Buttons should also flip naturally */
+}
+
+/* Logical spacing for lists and items that used align-items: flex-start */
+[dir="rtl"] .hero-content,
+[dir="rtl"] .consultant-card-content,
+[dir="rtl"] ul[style*="align-items: flex-start"] {
+  align-items: flex-end !important;
 }
 
 /* Transitions and logical spacing */

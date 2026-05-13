@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initFormValidation();
   initSkeletonLoaders();
+  initBackToTop();
 });
 
 /* ==========================================================================
@@ -110,8 +111,15 @@ function initMobileMenu() {
   // Dashboard mobile sidebar
   if (sidebarToggle && sidebar) {
     sidebarToggle.addEventListener('click', () => {
-      sidebar.classList.toggle('active');
+      sidebar.classList.add('active');
     });
+
+    const sidebarClose = document.getElementById('sidebar-close');
+    if (sidebarClose) {
+      sidebarClose.addEventListener('click', () => {
+        sidebar.classList.remove('active');
+      });
+    }
 
     // Close sidebar on click outside
     document.addEventListener('click', (e) => {
@@ -125,7 +133,30 @@ function initMobileMenu() {
 }
 
 /* ==========================================================================
-   4. Premium Client-Side Form Validation
+   4. Back to Top Button
+   ========================================================================== */
+function initBackToTop() {
+  const backToTopBtn = document.getElementById('backToTop');
+  if (!backToTopBtn) return;
+
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+      backToTopBtn.classList.add('show');
+    } else {
+      backToTopBtn.classList.remove('show');
+    }
+  });
+
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+}
+
+/* ==========================================================================
+   5. Premium Client-Side Form Validation
    ========================================================================== */
 function initFormValidation() {
   const forms = document.querySelectorAll('form[novalidate]');
@@ -226,7 +257,7 @@ function showFormSuccessState(form) {
 }
 
 /* ==========================================================================
-   5. Skeleton Loading Simulators
+   6. Skeleton Loading Simulators
    ========================================================================== */
 function initSkeletonLoaders() {
   const skeletons = document.querySelectorAll('.skeleton-wrapper');
