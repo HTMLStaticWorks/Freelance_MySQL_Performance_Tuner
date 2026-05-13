@@ -28,6 +28,17 @@
     .card-glass:hover .blog-card-img-wrap img {
       transform: scale(1.05);
     }
+    
+    /* Responsive Newsletter Expansive Card */
+    @media (max-width: 991px) {
+      .newsletter-expansive-card {
+        flex-direction: column !important;
+      }
+      .newsletter-expansive-card > .responsive-grid-2 > div:last-child {
+        border-left: none !important;
+        border-top: 1px solid var(--border-color) !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -102,11 +113,11 @@
           <div class="blog-card-img-wrap">
             <img src="https://haptic-networks.com/wp-content/uploads/2023/10/rocket-laptop-scaled.jpg" alt="Indexing">
           </div>
-          <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+          <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: flex-start; align-items: center;">
             <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--primary); font-weight: 700; margin-bottom: 5px;">Indexing</span>
             <h3 style="margin-bottom: 10px; font-size: 1.25rem;">Throttles Network</h3>
             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 15px;">Learn why requesting unnecessary columns blocks covering index scans and increases network transfer clouds.</p>
-            <a href="#" class="btn btn-text" style="font-size: 0.8rem; font-weight: 700;">Read Tutorial →</a>
+            <a href="#" class="btn btn-text" style="font-size: 0.8rem; font-weight: 700; margin-top: auto;">Read Tutorial →</a>
           </div>
         </div>
 
@@ -114,11 +125,11 @@
           <div class="blog-card-img-wrap">
             <img src="https://scalegrid.io/wp-content/uploads/blog-feature-img_calculating-innodb-buffer-pool-size-for-your-mysql-server.jpeg" alt="Config">
           </div>
-          <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+          <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: flex-start; align-items: center;">
             <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--primary); font-weight: 700; margin-bottom: 5px;">Server Config</span>
             <h3 style="margin-bottom: 10px; font-size: 1.25rem;">Tuning innodb_buffer_pool</h3>
             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 15px;">A definitive math guide to configuring database buffer pools and log file structures without crashing OS processes.</p>
-            <a href="#" class="btn btn-text" style="font-size: 0.8rem; font-weight: 700;">Read Tutorial →</a>
+            <a href="#" class="btn btn-text" style="font-size: 0.8rem; font-weight: 700; margin-top: auto;">Read Tutorial →</a>
           </div>
         </div>
 
@@ -126,11 +137,11 @@
           <div class="blog-card-img-wrap">
             <img src="https://learn.microsoft.com/en-us/sql/relational-databases/media/diagnose-resolve-latch-contention/image10.png?view=sql-server-ver17" alt="Troubleshooting">
           </div>
-          <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+          <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: flex-start; align-items: center;">
             <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--primary); font-weight: 700; margin-bottom: 5px;">Troubleshooting</span>
             <h3 style="margin-bottom: 10px; font-size: 1.25rem;">Diagnosing DB Lock</h3>
             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 15px;">How to find and resolve locking bottlenecks and transaction deadlocks using information schema log views.</p>
-            <a href="#" class="btn btn-text" style="font-size: 0.8rem; font-weight: 700;">Read Tutorial →</a>
+            <a href="#" class="btn btn-text" style="font-size: 0.8rem; font-weight: 700; margin-top: auto;">Read Tutorial →</a>
           </div>
         </div>
 
@@ -138,11 +149,11 @@
           <div class="blog-card-img-wrap">
             <img src="https://www.sqlshack.com/wp-content/uploads/2018/05/word-image-50-1.png" alt="Replication">
           </div>
-          <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+          <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: flex-start; align-items: center;">
             <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--primary); font-weight: 700; margin-bottom: 5px;">High Availability</span>
             <h3 style="margin-bottom: 10px; font-size: 1.25rem;">Master Replication</h3>
-            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 15px;">Exploring the pros and cons of multi-master setups and how to handle auto-increment conflicts in  environments.</p>
-            <a href="#" class="btn btn-text" style="font-size: 0.8rem; font-weight: 700;">Read Tutorial →</a>
+            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 15px;">Exploring the pros and cons of multi-master setups and how to handle auto-increment conflicts in environments.</p>
+            <a href="#" class="btn btn-text" style="font-size: 0.8rem; font-weight: 700; margin-top: auto;">Read Tutorial →</a>
           </div>
         </div>
 
@@ -150,11 +161,11 @@
           <div class="blog-card-img-wrap">
             <img src="https://www.finout.io/hs-fs/hubfs/AWS%20RDS.png?width=602&height=286&name=AWS%20RDS.png" alt="Cloud">
           </div>
-          <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+          <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: flex-start; align-items: center;">
             <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--primary); font-weight: 700; margin-bottom: 5px;">AWS RDS</span>
             <h3 style="margin-bottom: 10px; font-size: 1.25rem;">Reducing RDS IOPS Costs</h3>
             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 15px;">How optimizing your indexing strategy can directly reduce your AWS bill by lowering disk read/write operations done.</p>
-            <a href="#" class="btn btn-text" style="font-size: 0.8rem; font-weight: 700;">Read Tutorial →</a>
+            <a href="#" class="btn btn-text" style="font-size: 0.8rem; font-weight: 700; margin-top: auto;">Read Tutorial →</a>
           </div>
         </div>
 
@@ -162,11 +173,11 @@
           <div class="blog-card-img-wrap">
             <img src="https://substackcdn.com/image/fetch/$s_!9clv!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F571827ac-b3da-44a3-886a-8ca9770bb443_1337x1600.png" alt="Schema">
           </div>
-          <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+          <div style="padding: var(--space-6); flex: 1; display: flex; flex-direction: column; justify-content: flex-start; align-items: center;">
             <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--primary); font-weight: 700; margin-bottom: 5px;">Architecture</span>
             <h3 style="margin-bottom: 10px; font-size: 1.25rem;">Horizontal Sharding</h3>
-            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 15px;">When is the right time to shard? A guide to architectural patterns for databases exceeding  capacity.</p>
-            <a href="#" class="btn btn-text" style="font-size: 0.8rem; font-weight: 700;">Read Tutorial →</a>
+            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 15px;">When is the right time to shard? A guide to architectural patterns for databases exceeding capacity.</p>
+            <a href="#" class="btn btn-text" style="font-size: 0.8rem; font-weight: 700; margin-top: auto;">Read Tutorial →</a>
           </div>
         </div>
 
@@ -175,24 +186,32 @@
   </section>
 
   <!-- SECTION 3: NEWSLETTER SUBSCRIBE -->
-  <section class="section" id="subscribe-section">
-    <div class="container" style="text-align: center;">
-      <div class="section-header">
-        <h2 class="section-title">Get Weekly SQL Tuning Tips</h2>
-        <p class="section-subtitle">No spam. Just highly-technical, actionable MySQL scaling advice sent directly to your inbox.</p>
-      </div>
-      <div class="card-glass" style="max-width: 500px; margin: 0 auto; padding: var(--space-8);">
-        <form novalidate>
-          <div class="form-group">
-            <label class="form-label" for="email">Email Address</label>
-            <input class="form-control" type="email" id="email" placeholder="you@company.com" required>
-            <span class="validation-tooltip"></span>
+  <section class="section" id="subscribe-section" style="border-top: 1px solid var(--border-color);">
+    <div class="container">
+      <div class="card-glass newsletter-expansive-card" style="width: 100%; max-width: 1100px; margin: 0 auto; padding: 0; overflow: hidden; display: flex; text-align: center; align-items: stretch; border-radius: var(--border-radius-lg);">
+        <div class="responsive-grid-2" style="width: 100%; gap: 0;">
+          <div style="padding: var(--space-12); display: flex; flex-direction: column; justify-content: center; align-items: center; background: rgba(var(--primary-rgb), 0.01);">
+            <h2 class="section-title" style="font-size: 2.2rem; margin-bottom: 15px; text-align: center;">Get Weekly SQL Tuning Tips</h2>
+            <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.6; max-width: 450px; margin-left: auto; margin-right: auto;">Join 5,000+ engineers receiving deep-technical MySQL scaling advice, indexing checklists, and server-side optimization scripts every Tuesday.</p>
+            <div style="margin-top: 30px; display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+               <span style="font-size: 0.85rem; font-weight: 700; color: var(--primary); background: rgba(37, 99, 235, 0.1); padding: 5px 12px; border-radius: 20px;">✓ No Marketing Bloat</span>
+            </div>
           </div>
-          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: var(--space-4);">Subscribe to newsletter</button>
-        </form>
+          <div style="padding: var(--space-12); background: rgba(var(--primary-rgb), 0.03); display: flex; align-items: center; border-left: 1px solid var(--border-color); justify-content: center;">
+            <form novalidate style="width: 100%; max-width: 400px; margin: 0 auto;">
+              <div class="form-group" style="text-align: center;">
+                <label class="form-label" for="email" style="display: block; text-align: center;">Work Email Address</label>
+                <div class="password-input-wrapper">
+                  <input class="form-control" type="email" id="email" placeholder="you@company.com" required style="background: var(--bg-card); text-align: center;">
+                </div>
+                <span class="validation-tooltip"></span>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px; height: 50px;">Subscribe</button>
+              <p style="font-size: 0.75rem; color: var(--text-muted); text-align: center; margin-top: 15px;">By subscribing, you agree to our Privacy Policy. Opt-out anytime.</p>
+            </form>
+          </div>
+        </div>
       </div>
-
-      
     </div>
   </section>
 

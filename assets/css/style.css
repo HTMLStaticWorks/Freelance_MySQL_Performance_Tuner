@@ -724,6 +724,9 @@ code, pre {
 
 .dashboard-sidebar {
   width: var(--sidebar-width);
+  min-width: var(--sidebar-width);
+  height: 100vh;
+  flex-shrink: 0;
   background: var(--bg-sidebar);
   border-right: 1px solid var(--border-color);
   display: flex;
@@ -874,8 +877,8 @@ code, pre {
 
 /* Mobile & Tablet Views (up to 1023px) */
 @media (max-width: 1023px) {
-  .header-actions {
-    display: none !important; /* Hide on mobile/tablet */
+  .header .header-actions {
+    display: none !important; /* Hide on mobile/tablet for main header only */
   }
 
   .nav-menu-actions-mobile {
@@ -1001,8 +1004,8 @@ code, pre {
 }
 
 .card-grid > .card-glass, .card-grid > .card {
-  flex: 1 1 300px;
-  max-width: 380px;
+  flex: 1 1 320px;
+  max-width: 420px;
   width: 100%;
   box-sizing: border-box;
 }
@@ -1024,7 +1027,7 @@ code, pre {
   }
   .card-grid > .card-glass, .card-grid > .card {
     flex: 0 1 calc(33.333% - var(--space-6)) !important;
-    max-width: 360px !important;
+    max-width: 400px !important;
   }
 }
 
@@ -1033,7 +1036,8 @@ code, pre {
     justify-content: center !important;
   }
   .card-grid > .card-glass, .card-grid > .card {
-    flex: 0 1 360px !important;
+    flex: 0 1 calc(33.333% - var(--space-6)) !important;
+    max-width: 420px !important;
   }
 }
 

@@ -113,8 +113,7 @@
 WHERE id IN (
   SELECT id 
   FROM items 
-  WHERE qty > 10
-);</code></pre>
+  WHERE qty > 10);</code></pre>
             <p style="font-size: 0.85rem; color: var(--text-muted);">Triggers dependent nested loops on table scanning. Latency: <strong>3.84s</strong></p>
           </div>
         </div>
